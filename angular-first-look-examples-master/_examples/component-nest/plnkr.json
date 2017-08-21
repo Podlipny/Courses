@@ -1,0 +1,10 @@
+{
+  "description": "Nested Component",
+  "files":[
+    "!**/*.d.ts",
+    "!**/*.js",
+    "typings.d.ts",
+    "**/assets/*.js"
+  ],
+  "tags": ["first look", "Angular"]
+}
