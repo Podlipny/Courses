@@ -2,5 +2,7 @@
 /.gitconfig
 
 _Materials/
+bin/
+obj/
 
 /Building Applications with ASP.NET MVC 4/*
