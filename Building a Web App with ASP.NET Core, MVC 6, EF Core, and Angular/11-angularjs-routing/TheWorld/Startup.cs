@@ -56,13 +56,11 @@ namespace TheWorld
       services.AddIdentity<WorldUser, IdentityRole>(config =>
       {
         config.User.RequireUniqueEmail = true;
-        // config.Password.RequredLength = 8;
         config.Cookies.ApplicationCookie.LoginPath = "/auth/login";
         config.Cookies.ApplicationCookie.Events = new CookieAuthenticationEvents()
         {
           OnRedirectToLogin = async ctx =>
           {
-            //pokud volame jako API, tak nechceme page s loginem, ale jen kod
             if (ctx.Request.Path.StartsWithSegments("/api") && 
               ctx.Response.StatusCode == 200)
             {
@@ -76,7 +74,7 @@ namespace TheWorld
           }
         };
       })
-      .AddEntityFrameworkStores<WorldContext>(); //rikame kde budou indentity ulozeny
+      .AddEntityFrameworkStores<WorldContext>();
 
       services.AddScoped<IWorldRepository, WorldRepository>();
 
@@ -123,7 +121,7 @@ namespace TheWorld
 
       app.UseStaticFiles();
 
-      app.UseIdentity(); //musime rict ze budeme pouzivat Identity - Bacha zalezi na poradi
+      app.UseIdentity();
 
       app.UseMvc(config =>
       {

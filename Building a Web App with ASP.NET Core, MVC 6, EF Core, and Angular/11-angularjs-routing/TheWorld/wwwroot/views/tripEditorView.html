@@ -1,0 +1,48 @@
+<div>
+  <div>
+    <a href="#/" class="btn btn-sm btn-default"><i class="fa fa-angle-left"></i> Back</a>
+  </div>
+  <div class="col-md-3">
+    <h2>{{ vm.tripName }}</h2>
+    <wait-cursor display-when="vm.isBusy"></wait-cursor>
+    <div class="alert alert-danger" ng-show="vm.errorMessage">{{ vm.errorMessage }}</div>
+
+    <form novalidate name="newStopForm" ng-submit="vm.addStop()">
+      <div class="form-group">
+        <label>Date</label>
+        <input class="form-control" id="arrival" name="arrival"
+               ng-model="vm.newStop.arrival"
+               required
+               ng-pattern="/^(\d{2})\/(\d{2})\/(\d{4})$/" />
+        <span class="text-danger" ng-show="newStopForm.arrival.$error.required">Required</span>
+        <span class="text-danger" ng-show="newStopForm.arrival.$error.pattern">Must be in format of MM/DD/YYYY.</span>
+      </div>
+      <div class="form-group">
+        <label>Location</label>
+        <input class="form-control" id="name" name="name" ng-model="vm.newStop.name" required ng-minlength="5" />
+        <span class="text-danger" ng-show="newStopForm.name.$error.required">Required</span>
+        <span class="text-danger" ng-show="newStopForm.name.$error.minlength">Must be 5 characters or more</span>
+      </div>
+      <div>
+        <input type="submit" value="Add" class="btn btn-success" ng-disabled="newStopForm.$invalid" />
+      </div>
+    </form>
+
+    <table class="table table-responsive table-striped">
+      <tr>
+        <th>Location</th>
+        <th>Arrival</th>
+      </tr>
+      <tr ng-repeat="stop in vm.stops">
+        <td>{{ stop.name }}</td>
+        <td>{{ stop.arrival | date:shortDate }}</td>
+      </tr>
+    </table>
+
+  </div>
+
+  <div class="col-md-9">
+    <h2>The Map</h2>
+    <div id="map"></div>
+  </div>
+</div>

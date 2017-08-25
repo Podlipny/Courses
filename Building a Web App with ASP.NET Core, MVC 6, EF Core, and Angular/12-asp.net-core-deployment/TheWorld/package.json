@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "name": "theworld",
+  "private": true,
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-uglify": "~3.0.0"
+  }
+}
