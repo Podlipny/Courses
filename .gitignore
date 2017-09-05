@@ -4,5 +4,6 @@
 _Materials/
 bin/
 obj/
+node_modules/
 
 /Building Applications with ASP.NET MVC 4/*
