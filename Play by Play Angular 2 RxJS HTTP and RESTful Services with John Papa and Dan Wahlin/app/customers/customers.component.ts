@@ -17,7 +17,7 @@ export class CustomersComponent implements OnInit {
 
     ngOnInit() { 
         this.dataService.getCustomersSummary()
-            .subscribe((data: ICustomer[]) => this.customers = data);
+            .subscribe((data: ICustomer[]) => this.customers = data); //diky subscribe nemusime mit type observable<any[]> a async pipe v template
     }
     
     save(customer: ICustomer) {
