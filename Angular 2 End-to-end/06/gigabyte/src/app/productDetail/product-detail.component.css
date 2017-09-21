@@ -1,0 +1,22 @@
+img {
+    height: 50%;
+}
+
+.image-spacing {
+    margin-bottom: 50px;
+}
+
+.post-title {
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    background-color: #C0C0C0; 
+    margin-bottom: 20px;   
+}
+
+.back-link {
+    color: #000000;
+}
+
+.back-link:hover {
+    color: #0000FF;
+}

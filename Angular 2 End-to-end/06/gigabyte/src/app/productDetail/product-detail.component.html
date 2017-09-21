@@ -1,0 +1,34 @@
+<div class="row image-spacing">
+    <img [src]="singleProduct?.img">
+</div>
+
+<div class="row">
+    <div class="column text-left">
+        <a class="back-link" [routerLink]="['/shop']">    
+            <h4>Go Back</h4>
+        </a>
+    </div>
+    <div class="column text-right">
+        <a (click)="addProduct(singleProduct.id,singleProduct.name,singleProduct.price)">    
+            <h4>Add To Cart</h4>
+        </a>
+    </div>
+
+</div>
+
+<div class="row post-title">
+    <div class="column text-left">
+        <h2>{{singleProduct?.name}}</h2>
+    </div>
+</div>
+<div class="row post-title">
+    <div class="column text-left">
+        <h3>$ {{singleProduct?.price}}</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="column text-justified">
+        <p>{{singleProduct?.description}}</p>
+    </div>
+</div>
