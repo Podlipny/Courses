@@ -6,8 +6,8 @@ var helpers = require('./helpers');
 
 module.exports = {
   entry: {
-    'polyfills': './src/polyfills.ts',
-    'vendor': './src/vendor.ts',
+    'polyfills': './src/polyfills.ts', //definice polyfillu
+    'vendor': './src/vendor.ts', //obsahuje vsechny zakladni moduly co potrebujeme, plus veci jako jQuery atd
     'app': './src/main.ts'
   },
 
