@@ -17,7 +17,7 @@ const AdminRoutes: Routes = [
         children: [
             { path: 'login', component: LoginComponent },
             { path: 'signup', component: SignUpComponent },
-            { path: '', component: AdminMenuComponent, canActivate: [UserService] }
+            { path: '', component: AdminMenuComponent, canActivate: [UserService] } //canActivate rika kde se bude overovat ze mame pro tuto routu prava 
         ]
     },
 ];

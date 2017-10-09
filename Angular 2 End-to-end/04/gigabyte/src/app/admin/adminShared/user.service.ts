@@ -15,6 +15,7 @@ export class UserService implements CanActivate {
     authUser: any;
     
     constructor( private router: Router ) {
+        //inicializujeme Firebase
         firebase.initializeApp({
             apiKey: "API Key Goes Here",
     	    authDomain: "Auth Domain Goes Here",
@@ -25,6 +26,7 @@ export class UserService implements CanActivate {
      }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean { 
+        //overujeme routy zda mame pristup
         let url: string = state.url;
         return this.verifyLogin(url);
     }   
@@ -43,6 +45,7 @@ export class UserService implements CanActivate {
         });
     }
 
+    //vola se z jednotlivych component.ts jako akce na klick
     verifyUser() {
         this.authUser = firebase.auth().currentUser;
         if (this.authUser) {
