@@ -7,12 +7,16 @@ import { Blog } from '../adminShared/blog';
 export class BlogAdminService {
 
     createPost(post: Blog){
+        //reference na firebase storage
         let storageRef = firebase.storage().ref();
+        //vytvorime si cestu kam budeme uklada obrazky
         storageRef.child(`images/${post.imgTitle}`).putString(post.img, 'base64')
             .then((snapshot) => { 
+                //ziskame cestu k obrazku a nasledne podle toho ulozime blog post
                 let url = snapshot.metadata.downloadURLs[0];
                 let dbRef = firebase.database().ref('blogPosts/');
                 let newPost = dbRef.push();
+                //zapiseme data do firebase pomoci set
                 newPost.set ({
                     title: post.title,
                     content: post.content,
@@ -32,7 +36,7 @@ export class BlogAdminService {
                 title: update.title,
                 content: update.content
             });
-        alert('post updated');       
+        alert('post updated');  //idealne Toaster Service s nasatvenim property     
     }
 
     removePost(deletePost: Blog){

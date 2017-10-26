@@ -17,6 +17,7 @@ export class BlogAddComponent {
 
     constructor( private blogAdminSVC: BlogAdminService, private router: Router  ){}
 
+    //event je accesed by angular a preda nam file z formu
     fileLoad($event: any) {
         let myReader:FileReader = new FileReader();
         let file:File = $event.target.files[0];
@@ -29,6 +30,7 @@ export class BlogAddComponent {
 
     }
 
+    //vytvorime post a presmerujeme na admin
     createPost(){
         this.post = new Blog ( 
             this.postTitle, 
@@ -37,7 +39,7 @@ export class BlogAddComponent {
             this.imageSRC.substring(23) 
         );
         this.blogAdminSVC.createPost(this.post);
-        alert(`${this.postTitle} added to posts`);
+        alert(`${this.postTitle} added to posts`);//idealni mit toaster servisu a v ni nasatvit property, ktera nam zviditelni Toaster Element
         this.router.navigate(['/admin']);
     }    
 

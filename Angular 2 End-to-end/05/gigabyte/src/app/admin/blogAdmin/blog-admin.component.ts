@@ -64,6 +64,7 @@ export class BlogAdminComponent implements OnInit {
         let verify = confirm(`Are you sure you want to delete this post?`)
         if (verify == true) {
             this.blogAdminSVC.removePost(single);
+            //nemusime refreshovat, ale lepsi by bylo odebrat post z kolekce
             this.router.navigate(['/admin/']);
         } else {
             alert('Nothing deleted!');

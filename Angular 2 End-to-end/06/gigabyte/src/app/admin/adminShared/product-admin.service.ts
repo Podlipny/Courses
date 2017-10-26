@@ -48,6 +48,4 @@ export class ProductAdminService {
                     alert(`Error - Unable to delete ${deleteProduct.imgTitle}`);
                 });
     }
-
-
 }

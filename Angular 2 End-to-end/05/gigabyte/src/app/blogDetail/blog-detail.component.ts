@@ -14,11 +14,12 @@ import { Blog } from '../admin/adminShared/blog';
     constructor( private route: ActivatedRoute, private router: Router ) {}
 
     ngOnInit(){
-        let postId = this.route.snapshot.params['id'];
+        let postId = this.route.snapshot.params['id']; //pouzijeme id z route parametru
         this.getSingle(postId);
     }
 
     getSingle(id: string){
+        //na tohle by mela bejt service a ne naprimio pristupovat do DB
         let dbRef = firebase.database().ref('blogPosts');
         dbRef.orderByChild('id')
             .equalTo(id)
