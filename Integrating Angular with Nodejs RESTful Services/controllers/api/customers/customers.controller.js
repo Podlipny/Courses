@@ -5,6 +5,10 @@ const customersRepo = require('../../../lib/customersRepository'),
 class CustomersController {
 
     constructor(router) {
+        //bind musime pouzit aby jsme mohli pristupovat k metoda
+        //pokud by jsme se nebindovali na this, tak by to znamenalo, ze getCustomers se bude tvarit jako GlobalObject, ktery je unknown
+        //Proto mu musime predat context
+        //mohlo by take byt myJsModul.getCustomers.bind(myJsModul)
         router.get('/', this.getCustomers.bind(this));
         router.get('/page/:skip/:top', this.getCustomersPage.bind(this));
         router.get('/:id', this.getCustomer.bind(this));

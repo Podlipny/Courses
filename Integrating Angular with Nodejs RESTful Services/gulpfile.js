@@ -25,6 +25,9 @@ gulp.task('clean', function () {
   return del(libPath + '/**/*', { force: true });
 });
 
+//prekopirujeme staticke soubory do libPath 'public/lib'
+//spusti jednotlive scripty
+//delame kvuli tomu, ze pokud nebuildime na serveru, tak aby mel browser moznost nacist potrebne dependencies
 gulp.task('copy:libs', function (done) {
     sequence('clean', 'copy:vendor', 'copy:rxjs', 'copy:angular', done);
 });

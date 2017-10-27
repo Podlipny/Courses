@@ -8,7 +8,7 @@ class Router {
         this.startFolder = null;
     }
 
-    //Called once during initial server startup
+    //Called once during initial server startup - startuje pred startem serveru
     load(app, folderName) {
 
         if (!this.startFolder) this.startFolder = path.basename(folderName);
@@ -18,6 +18,7 @@ class Router {
             const fullName = path.join(folderName, file);
             const stat = fs.lstatSync(fullName);
 
+            //pokud je folder, tak rekurzivne projde jeho potomky
             if (stat.isDirectory()) {
                 //Recursively walk-through folders
                 this.load(app, fullName);
@@ -29,6 +30,8 @@ class Router {
                     dirs.splice(0, 1);
                 }
 
+                //postupne budujeme routy pro jednotlive controllery s tim, ze kazdu controller ma svuj vlastni router
+                //takze pro nej muzeme pouzit vlastni middleware - treba v nem muzeme logovat atd
                 const router = express.Router();
                 //Generate the route
                 const baseRoute = '/' + dirs.join('/');
