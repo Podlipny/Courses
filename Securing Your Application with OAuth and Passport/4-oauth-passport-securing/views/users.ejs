@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/lib/bootstrap/dist/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='/lib/font-awesome/css/font-awesome.min.css'>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+    <script src="/lib/jquery/dist/jquery.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <div>
+      <img src='<%=user.image%>'/>
+      <%=user.displayName%>
+      <% if (user.facebook) { %>
+        <img src="<%=user.facebook.image%>">
+        I have <%=user.facebook.friends%> friends.
+      <% } %>
+    </div>
+    <div>
+      <% if (user.twitter) { %>
+        Last Tweet: <%=user.twitter.lastPost%>
+      <% } %>
+    </div>
+    <div>
+      <ul class="list-unstyled">
+        <li><a href="/auth/google" class="btn <%if(user.google) {%>btn-danger googleplus<%}%>"><i class="fa fa-google-plus"></i> Google</a></li>
+        <li><a href="/auth/twitter" class="btn b<%if(user.twitter){%>tn-info twitter<%}%>"><i class="fa fa-twitter"></i> Twitter</a></li>
+        <li><a href="/auth/facebook" class="btn <%if(user.facebook){%>btn-primary facebook<%}%>"><i class="fa fa-facebook"></i> Facebook</a></li>
+      </ul>
+    </div>
+  </body>
+</html>
