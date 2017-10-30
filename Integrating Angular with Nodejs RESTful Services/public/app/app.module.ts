@@ -9,7 +9,7 @@ import { SharedModule }   from './shared/shared.module';
 @NgModule({
   imports: [
     BrowserModule, 
-    appRouting.routes, 
+    appRouting.routes, //nepouzivame klasicky RoutingModule, ale druhy approach - oboje funguje
     CoreModule,   //Singleton objects
     SharedModule  //Shared (multi-instance) objects
   ],

@@ -1,6 +1,8 @@
 (function(global) {
   
   // map tells the System loader where to look for things
+  // rikame kde vezmeme jednotlive soubory pro aplikaci @angular odkazuje na lib/@angular
+  // do lib se to dostane pomoci tasku spusteneho pomoci Gulpu Gulp:Copy
   var map = {
     'app':        'app', // 'dist',
     '@angular':   'lib/@angular',
@@ -9,6 +11,7 @@
   };
 
   // packages tells the System loader how to load when no filename and/or no extension
+  // ty souboru co se nacita, pracuje se jen s *.js files - *.ts jsou prelozeny pomoci tsc
   var packages = {
     'app': { 
       main: 'main.js',  
@@ -47,6 +50,7 @@
   }
 
   // Most environments should use UMD; some (Karma) need the individual index files
+  // definujeme zda nacitame njormalni *.js soubory nebo Bundly
   var setPackageConfig = System.packageWithIndex ? packIndex : packUmd;
   // Add package entries for angular packages
   ngPackageNames.forEach(setPackageConfig);

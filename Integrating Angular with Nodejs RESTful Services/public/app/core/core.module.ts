@@ -25,6 +25,7 @@ import { EnsureModuleLoadedOnceGuard } from '../shared/ensureModuleLoadedOnceGua
 })
 export class CoreModule extends EnsureModuleLoadedOnceGuard {    //Ensure that CoreModule is only loaded into AppModule
 
+  //kontroluje zda byly moduly nacteny pouze jen jednou - pokud by jsme CoreModule importovali nekde jinde, tak by zacalo rvat
   //Looks for the module in the parent injector to see if it's already been loaded (only want it loaded once)
   constructor( @Optional() @SkipSelf() parentModule: CoreModule) {
     super(parentModule);

@@ -13,7 +13,9 @@ const routes: Routes = [
   { path: '**', pathMatch:'full', redirectTo: '/customers' } //catch any unfound routes and redirect to home page
 ];
 
+//nepouzivame klasicky RoutingModule, ale druhy approach
 export const appRouting: IRouting = { 
     routes: RouterModule.forRoot(routes),
-    components: [ CustomersComponent, CustomerEditComponent, CustomerEditReactiveComponent, CustomersGridComponent ]
+    components: [ CustomersComponent, CustomerEditComponent, CustomerEditReactiveComponent, CustomersGridComponent ] 
+    //vyhoda je ze nemusime vsechno declarovat v *.module.ts, ale muzeme to pridat pres routing 
 };

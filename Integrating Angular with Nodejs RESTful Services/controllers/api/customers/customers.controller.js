@@ -1,6 +1,6 @@
 const customersRepo = require('../../../lib/customersRepository'),
       statesRepo = require('../../../lib/statesRepository'),
-      util = require('util');
+      util = require('util'); //NodeJs Util pro logging
 
 class CustomersController {
 
@@ -9,6 +9,7 @@ class CustomersController {
         //pokud by jsme se nebindovali na this, tak by to znamenalo, ze getCustomers se bude tvarit jako GlobalObject, ktery je unknown
         //Proto mu musime predat context
         //mohlo by take byt myJsModul.getCustomers.bind(myJsModul)
+        //proste nastavujeme proper this - v kurzu pise ze je to optional, ale radsi to nastavuje aby se predeslo problemum
         router.get('/', this.getCustomers.bind(this));
         router.get('/page/:skip/:top', this.getCustomersPage.bind(this));
         router.get('/:id', this.getCustomer.bind(this));
@@ -19,10 +20,12 @@ class CustomersController {
 
     getCustomers(req, res) {
         console.log('*** getCustomers');
+        //nechceme aby routing controller vedel neco o DB
         customersRepo.getCustomers((err, data) => {
             if (err) {
                 console.log('*** getCustomers error: ' + util.inspect(err));
-                res.json(null);
+                res.json(null); //muzeme vratit nejakou error message, ale lepsi je logovat na serveru a na clientovi jen rict, ze doslo k chybe
+                //res.json({ error: err }); tot je dalsi moznost
             } else {
                 console.log('*** getCustomers ok');
                 res.json(data.customers);
