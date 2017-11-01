@@ -6,9 +6,11 @@
       </h3>
   </header>
   <br />
+  <!--  #customerForm="ngForm" slouzi pro pristup k formulari a jeho properties -->
   <form (ngSubmit)="submit()" #customerForm="ngForm" class="editForm" novalidate>
     <div class="form-group">
       <label>First Name</label>
+      <!-- #firstName="ngModel" local template variable -->
       <input type="text" class="form-control" name="firstName" [(ngModel)]="customer.firstName" #firstName="ngModel" required>
       <div class="alert alert-danger" [hidden]="firstName.untouched || firstName.valid">First Name is required</div>
     </div>
@@ -68,6 +70,7 @@
 
       <div class="pull-right" *ngIf="!deleteMessageEnabled">
         <button class="btn btn-default" (click)="cancel($event)">Cancel</button>&nbsp;&nbsp;
+        <!-- local #customerForm variable  -->
         <button type="submit" class="btn btn-success" [disabled]="!customerForm.valid">{{ operationText }}</button>
       </div>
     </div>

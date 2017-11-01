@@ -6,9 +6,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/throw';
-import 'rxjs/add/operator/map'; 
-import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw'; //error handling
+import 'rxjs/add/operator/map';  //mapujeme return ze serveru na nase property
+import 'rxjs/add/operator/catch'; //error catching
 
 import { ICustomer, IOrder, IState, IPagedResults, ICustomerResponse } from '../shared/interfaces';
 
@@ -21,10 +21,12 @@ export class DataService {
     constructor(private http: HttpClient) { 
 
     }
-    
+
     getCustomers() : Observable<ICustomer[]> {
         return this.http.get<ICustomer[]>(this.baseUrl)
                    .map((customers: ICustomer[]) => {
+                       //pokud pouzijeme HttpClient, tak nemusime sami parsovat Json, ale rovnou predavama data object
+                       //mame get<TYPE>
                        this.calculateCustomersOrderTotal(customers);
                        return customers;
                    })
@@ -35,7 +37,7 @@ export class DataService {
         return this.http.get<ICustomer[]>(`${this.baseUrl}/page/${page}/${pageSize}`, {observe: 'response'})
                     .map((res) => {
                         //Need to observe response in order to get to this header (see {observe: 'response'} above)
-                        const totalRecords = +res.headers.get('x-inlinecount');
+                        const totalRecords = +res.headers.get('x-inlinecount'); //+ invert to numeric value
                         let customers = res.body as ICustomer[];
                         this.calculateCustomersOrderTotal(customers);
                         return {
@@ -54,8 +56,9 @@ export class DataService {
     insertCustomer(customer: ICustomer) : Observable<ICustomer> {
         return this.http.post<ICustomerResponse>(this.baseUrl, customer)
                    .map((data) => {
-                       console.log('insertCustomer status: ' + data.status);
-                       return data.customer;
+                        //na kazdy event (projection) mapujeme pozadovanou funkcionalitu
+                        console.log('insertCustomer status: ' + data.status);
+                        return data.customer;
                    })
                    .catch(this.handleError);
     }

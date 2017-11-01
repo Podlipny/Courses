@@ -41,6 +41,7 @@ class CustomersController {
               skip = (isNaN(skipVal)) ? 0 : +skipVal;
 
         customersRepo.getPagedCustomers(skip, top, (err, data) => {
+            //pro toto je lepsi pouzit header
             res.setHeader('X-InlineCount', data.count);
             if (err) {
                 console.log('*** getCustomersPage error: ' + util.inspect(err));
@@ -70,11 +71,15 @@ class CustomersController {
 
     insertCustomer(req, res) {
         console.log('*** insertCustomer');
+        //nejdriev musime ziskat stateId - jedna se jen o overeni, ze dany stateId opravdu existuje
+        //Mongoose funguje na principu callbacku
         statesRepo.getState(req.body.stateId, (err, state) => {
             if (err) {
+                //pokud neni state tak vyhodime error
                 console.log('*** statesRepo.getState error: ' + util.inspect(err));
                 res.json({ status: false, error: 'State not found', customer: null });
             } else {
+                //pokud state je, tak prejdeme k ulozeni customera
                 customersRepo.insertCustomer(req.body, state, (err, customer) => {
                     if (err) {
                         console.log('*** customersRepo.insertCustomer error: ' + util.inspect(err));

@@ -25,7 +25,7 @@ export class CustomerEditComponent implements OnInit {
   operationText: string = 'Insert';
   
   constructor(private router: Router, 
-              private route: ActivatedRoute, 
+              private route: ActivatedRoute, //reprezentuje current route
               private dataService: DataService) { }
 
   ngOnInit() {
@@ -51,7 +51,7 @@ export class CustomerEditComponent implements OnInit {
   }
   
   submit() {
-
+      //pri editaci primo editujeme property customer
       if (this.customer._id) {
 
         this.dataService.updateCustomer(this.customer)
@@ -86,7 +86,7 @@ export class CustomerEditComponent implements OnInit {
   }
 
   delete(event: Event) {
-    event.preventDefault();
+    event.preventDefault(); //dont buble up
     this.dataService.deleteCustomer(this.customer._id)
         .subscribe((status: boolean) => {
           if (status) {

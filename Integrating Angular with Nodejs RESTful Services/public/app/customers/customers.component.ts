@@ -51,4 +51,15 @@ export class CustomersComponent implements OnInit {
         () => console.log('getCustomersPage() retrieved customers'));
   }
 
+  //pred Page se pouzivalo:
+  getCusotmers(){
+    this.dataService.getCustomers()
+        .subscribe((customers: ICustomer[]) => {
+            this.customers = this.filteredCustomers = customers;
+          },
+          (err: any) => console.log(err),
+          () => console.log('getCustomer() retrieved customers')
+        );
+  }
+
 }

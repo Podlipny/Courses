@@ -77,6 +77,7 @@ export class PaginationComponent implements OnInit {
     this.currentPage = page;
     this.previousEnabled = this.currentPage > 1;
     this.nextEnabled = this.currentPage < this.totalPages;
+    //zavolome vstupni event, kterey nam zavola function v customer.component.ts
     this.pageChanged.emit(page);
   }
 

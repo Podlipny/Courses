@@ -10,6 +10,7 @@ import { TrackByService } from '../core/trackby.service';
   //When using OnPush detectors, then the framework will check an OnPush 
   //component when any of its input properties changes, when it fires 
   //an event, or when an observable fires an event ~ Victor Savkin (Angular Team)
+  //nekontrolujeme zmeny vzdy, ale jen pokud se zmeni input properties
   changeDetection: ChangeDetectionStrategy.OnPush 
 })
 export class CustomersGridComponent implements OnInit {
