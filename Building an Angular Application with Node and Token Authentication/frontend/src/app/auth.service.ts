@@ -29,6 +29,7 @@ export class AuthService {
     }    
     
     loginUser(loginData) {
+        //http (pokud pouzijeme HttpClient) defaultne vraci object, takze potom nejde res.token - pokud pretipujeme na any, tak neni problem
         this.http.post<any>(this.path + '/login', loginData).subscribe(res => {
             this.saveToken(res.token)
         })

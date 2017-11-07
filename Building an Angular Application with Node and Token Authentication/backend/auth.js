@@ -35,7 +35,7 @@ router.post('/login', async (req, res) => {
 });
 
 function createSendToken(res, user) {
-    var payload = { sub: user._id };
+    var payload = { sub: user._id }; //jwt guide lines rikaji ze by to melo byt sub
 
     var token = jwt.encode(payload, '123');
 

@@ -23,7 +23,7 @@ app.get('/posts/:id', async (req, res) => {
 
 app.post('/post', auth.checkAuthenticated, (req, res) => {
     var postData = req.body;
-    postData.author = req.userId;
+    postData.author = req.userId; //bere se z auth.checkAuthenticated kde se nastavi req.userId z payload ktery se dopocita z tokenu
 
     var post = new Post(postData);
 
