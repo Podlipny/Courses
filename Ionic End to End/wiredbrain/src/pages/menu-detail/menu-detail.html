@@ -1,0 +1,67 @@
+<!--
+  Generated template for the MenuDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+      <ion-title>{{theCoffee.name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="myDetail">
+  <ion-row>
+    <img src={{theCoffee.img}} >
+  </ion-row>
+  
+  <div class="desc">
+      {{theCoffee.description}}
+  </div>
+  <ion-item class="mySelects">
+      <ion-label>Size</ion-label> 
+      <ion-select [(ngModel)]="theCoffee.price">
+          <ion-option value={{theCoffee.small}}>small</ion-option>
+          <ion-option value={{theCoffee.medium}}>medium</ion-option>
+          <ion-option value={{theCoffee.large}}>large</ion-option>
+      </ion-select>
+  </ion-item>
+  
+  <ion-item class="mySelects">
+    <ion-label>Milk</ion-label>
+    <ion-select [(ngModel)]="theCoffee.milk">
+        <ion-option value="no">none</ion-option>
+        <ion-option value="whole">whole</ion-option>
+        <ion-option value="skim">skim</ion-option>
+        <ion-option value="2%">2%</ion-option>
+        <ion-option value="soy">soy</ion-option>  
+    </ion-select>
+  </ion-item>
+  <ion-item class="mySelects">
+      <ion-label>Whipped Cream</ion-label>
+      <ion-select [(ngModel)]="theCoffee.whip">
+          <ion-option value="no">none</ion-option>
+          <ion-option value="light">light whipped cream</ion-option>
+          <ion-option value="heavy">heavy whipped cream</ion-option>
+        </ion-select>
+  </ion-item>
+
+  <ion-row>
+      <ion-col text-center><h3>{{theCoffee.price | currency:'USD':true}}</h3></ion-col>
+  </ion-row>
+  
+  <ion-row>
+    <ion-col> 
+      <button ion-button outline large block (click)="addToCart()">Add 
+        <ion-icon name="cart"></ion-icon>
+      </button> 
+    </ion-col>
+  </ion-row>
+  
+
+
+
+</ion-content>

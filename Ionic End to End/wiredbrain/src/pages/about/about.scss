@@ -1,0 +1,20 @@
+page-about {
+    .aboutContent {
+        background-color: #fff;
+    }
+    .ceoContent {
+        background-color: color($colors, secondary);
+        color: #fff;
+    }
+    .coffeeContent { 
+        color: color($colors, light); 
+    }   
+    .ceo{
+        height: 25em;
+    }       
+    p{
+        font-size: 1.25em;
+    }
+                  
+        
+}
