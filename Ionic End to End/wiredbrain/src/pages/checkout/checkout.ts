@@ -150,7 +150,7 @@ export class CheckoutPage implements OnInit {
         let payment = new PayPalPayment(amt , 'USD', 'Description', 'sale');
         this.payPal.renderSinglePaymentUI(payment).then((res) => {
           console.log('Result from Paypal: ', res);
-        
+        //error handling nize je z Ionic documentace
       },(err) => {
         console.log('Error: ', err)
       });
