@@ -1,5 +1,6 @@
 <mat-sidenav-container class="app-sidenav-container"
                       [class.dark-theme]="isDarkTheme" [dir]="dir">
+  <!-- mat-elevation-z10" - vraci stin pokud je side bar deaultne otevren -->
   <mat-sidenav #sidenav class="app-sidenav mat-elevation-z10"
                [opened]="!isScreenSmall()"
                [mode]="isScreenSmall() ? 'over' : 'side'">

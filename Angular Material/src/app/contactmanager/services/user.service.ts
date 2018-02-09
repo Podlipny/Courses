@@ -8,6 +8,7 @@ import { resolve } from 'q';
 @Injectable()
 export class UserService {
 
+  // fungujeme na principu internich property
   private _users: BehaviorSubject<User[]>;
   
   private dataStore: {
@@ -33,6 +34,7 @@ export class UserService {
   }
 
   userById(id: number) {
+    //cekame ze nekdo uz naloadovat users do internal storu a tim pade nemusime provadet znovu load
     return this.dataStore.users.find(x => x.id == id);
   }
 
@@ -42,6 +44,8 @@ export class UserService {
     return this.http.get<User[]>(usersUrl)
       .subscribe(data => {
         this.dataStore.users = data;
+        // timto dame vedet vsem co se subscribly k get users() ze doslo k preloadovani users (usery presuneme z lokalniho datastore do users)
+        // immutable solution
         this._users.next(Object.assign({}, this.dataStore).users);
       }, error => {
         console.log("Failed to fetch users");

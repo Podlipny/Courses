@@ -17,15 +17,9 @@ import { NewContactDialogComponent } from './components/new-contact-dialog/new-c
 
 const routes: Routes = [
   {
-<<<<<<< HEAD
     path: '', component: ContactmanagerAppComponent, //naste root level componentu s router-outler a sidenavbarem
     children: [
       { path: ':id', component: MainContentComponent }, //nacita do router-outlet
-=======
-    path: '', component: ContactmanagerAppComponent,
-    children: [
-      { path: ':id', component: MainContentComponent },
->>>>>>> f02f807e4aff17080beb37942520bcaa89681660
       { path: '', component: MainContentComponent }
     ]
   },
