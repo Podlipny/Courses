@@ -46,7 +46,8 @@ const routes: Routes = [
     SidenavComponent, 
     NotesComponent, 
     NewContactDialogComponent
-  ], 
+  ],
+  //jelikoz nacitame z kodu, tak muism ekvuli AoT deklarovat take zde
   entryComponents: [
     NewContactDialogComponent
   ]

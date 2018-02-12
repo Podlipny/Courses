@@ -18,7 +18,7 @@ export class NotesComponent implements OnInit {
 
   // z template nacetem jednotlive prvky a v ngAfterViewInit je vlozime do MatTable
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatSort) sort: MatSort; //allows us tu access sort directive
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
