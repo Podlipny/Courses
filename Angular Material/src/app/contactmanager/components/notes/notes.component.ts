@@ -9,13 +9,14 @@ import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 })
 export class NotesComponent implements OnInit {
 
-  @Input() notes: Note[];
+  @Input() notes: Note[]; //predavame notes z main-content.component
 
   displayedColumns = ['position', 'title', 'date'];
   dataSource: MatTableDataSource<Note>;
 
   constructor() { }
 
+  // z template nacetem jednotlive prvky a v ngAfterViewInit je vlozime do MatTable
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
