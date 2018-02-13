@@ -11,6 +11,7 @@ import { initialMenuItems } from './app.menu';
 })
 export class AppComponent {
   
+  // injektujeme FrameworkConfigService 
   constructor (private frameworkConfigService: FrameworkConfigService,
                private menuService: MenuService) {
 
