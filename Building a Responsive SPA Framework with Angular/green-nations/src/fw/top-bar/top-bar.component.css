@@ -1,0 +1,40 @@
+:host {
+    height: 30px; 
+    text-align: right; 
+    padding-top: 4px;
+    color: #888;
+}
+
+div {
+    display: inline;
+    margin-left: 34px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.top-image {
+    width: 18px;
+    height: 18px;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+.flag-image {
+    width: 22px;
+    height: 16px;
+    vertical-align: middle;
+    /*margin-right: -16px;*/
+}
+
+span.glyphicon {
+    margin-left: 4px;
+    font-size: 11px;
+}
+
+.sign-out {
+    margin-left: 12px;
+    cursor: pointer;
+}
+

@@ -1,0 +1,71 @@
+:host {
+    display: inline-block;
+    position: relative;
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+    font-size: 15px;
+    line-height: 15px;
+    color: #666;
+    cursor: pointer;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+:host:not(.parent-is-popup) {
+    margin-left: 16px;
+    width: auto;
+}
+
+:host(.vertical-menu) {
+    display: block;
+    margin-left: 0;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    color: white;
+}
+
+:host(.vertical-menu.in-popup) {
+    padding-left: 16px;
+}
+
+span {
+    pointer-events: none;
+}
+
+.glyphicon {
+    top: 1px;
+    font-size: 14px;
+    margin-right: 4px;
+    margin-left: 8px;
+}
+
+.glyphicon-menu-left, .glyphicon-menu-right, .glyphicon-menu-down {
+    float: right;
+}
+
+
+.menu-item {
+    padding: 10px 10px 10px 0;
+}
+
+.menu-item.vertical-menu {
+    padding: 6px 6px 6px 0;
+}
+
+.menu-item:hover {
+    background-color: #dfd;
+}
+
+.menu-item.vertical-menu:hover {
+    background-color: green;
+}
+
+.router-link-active {
+    background-color: #dfd;
+}
+
+.router-link-active.vertical-menu {
+    background-color: green;
+}

@@ -1,0 +1,29 @@
+:host {
+    display: block;
+}
+
+table { 
+  border-collapse: collapse; 
+  margin: 10px;
+  margin-top: 20px;
+}
+
+tr:nth-of-type(odd) { 
+  background: #eee; 
+}
+
+th { 
+  background: #333; 
+  color: white; 
+  font-weight: bold; 
+}
+
+td, th { 
+  padding: 6px; 
+  border: 1px solid #ccc; 
+  text-align: left; 
+}
+
+.btn.btn-sm {
+    width: 80px;
+}
