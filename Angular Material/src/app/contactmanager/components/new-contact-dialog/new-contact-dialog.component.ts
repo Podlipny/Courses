@@ -22,7 +22,7 @@ export class NewContactDialogComponent implements OnInit {
 
   name = new FormControl('', [Validators.required]);
 
-  getErrorMessage() {
+  getErrorMessage() { // pro zistakni erorru do template
     return this.name.hasError('required') ? 'You must enter a name' : '';
   }
 
