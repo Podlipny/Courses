@@ -1,5 +1,6 @@
 :host {
     display: flex; 
+    /* zorovna se na pravou stranu flexboxu */
     align-items: flex-end; 
     justify-content: flex-end;
     flex-grow: 1;

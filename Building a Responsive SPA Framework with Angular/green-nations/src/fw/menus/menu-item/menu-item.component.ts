@@ -22,7 +22,8 @@ import { MenuItem, MenuService } from '../../services/menu.service';
     ]
 })
 export class MenuItemComponent implements OnInit {
-  @Input() item = <MenuItem>null;  // see angular-cli issue #2034
+  // see angular-cli issue #2034 - je to kvuli tomu, ze je v angularu bug, ktery pokud neni interface v samostatnem souboru, tak dojde k warningu
+  @Input() item = <MenuItem>null; 
   @HostBinding('class.parent-is-popup')
   @Input() parentIsPopup = true;
   isActiveRoute = false;
@@ -54,6 +55,7 @@ export class MenuItemComponent implements OnInit {
         });
   }
 
+  //HostListener posloucha eventy na dane componnete
   @HostListener('click', ['$event'])
   onClick(event) : void {
 

@@ -29,6 +29,7 @@ export class AppComponent {
 
     frameworkConfigService.configure(config);
 
+    // nacteme si data do menu service - v realu se bude nacitat treba z DB - jednotlive kategorie v aplikaci atd
     menuService.items = initialMenuItems;
 
   }
