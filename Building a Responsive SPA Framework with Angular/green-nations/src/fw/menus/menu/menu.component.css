@@ -6,6 +6,7 @@
     flex-grow: 1;
 }
 
+/* obsahuje .vertical-menu */
 :host(.vertical-menu) {
     display: inline-block;
     max-width: 200px;

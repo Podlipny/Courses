@@ -2,7 +2,7 @@
   <ul>
     <li *ngFor="let item of menuService.items">
       <fw-menu-item [item]="item"
-                    [ngClass]="{'vertical-menu': menuService.isVertical }"
+                    [ngClass]="{'vertical-menu': menuService.isVertical }" 
                     [parentIsPopup]="false">
       </fw-menu-item>
     </li>
@@ -13,7 +13,8 @@
       *ngIf="!menuService.showingLeftSideMenu"
       class="btn btn-sm"
       [ngClass]="{'horizontal': !menuService.isVertical }"
-      (click)="menuService.toggleMenuOrientation()">
+      (click)="menuService.toggleMenuOrientation()">  <!-- prepioname mezi vertival a horizontal menu -->
+  <!-- na zaklade orientace menime gliph icon -->
   <span *ngIf="menuService.isVertical" class="glyphicon glyphicon-menu-up"></span>
   <span *ngIf="!menuService.isVertical" class="glyphicon glyphicon-menu-left"></span>
 </button>

@@ -1,5 +1,5 @@
 :host {
-    position: absolute;
+    position: absolute; /* absolute protoze pluje okolo objektu */
     display: inline-block;
     width: 162px;
     background-color: white;
@@ -8,7 +8,7 @@
 }
 
 :host(.vertical-menu) {
-    position: static;
+    position: static; /* bude embeded pod parentem */
     display: block;
     width: 100%;
     background-color: transparent;

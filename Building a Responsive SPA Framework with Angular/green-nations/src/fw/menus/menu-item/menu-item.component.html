@@ -20,7 +20,12 @@
     [ngClass]="{'vertical-menu': menuService.isVertical}"
     (mouseleave)="onPopupMouseLeave($event)" 
     (mouseenter)="onPopupMouseEnter($event)"
-    [style.left.px]="popupLeft"
+    [style.left.px]="popupLeft" 
     [style.top.px]="popupTop"
-    @visibilityChanged>
+    @visibilityChanged> 
 </fw-popup-menu>
+<!--    
+ [style.left.px]="popupLeft" kvuli pozicovani na screene
+ [style.top.px]="popupTop"
+ @visibilityChanged je tu kvuli animation
+ -->

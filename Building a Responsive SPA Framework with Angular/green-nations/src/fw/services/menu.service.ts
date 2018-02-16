@@ -11,7 +11,7 @@ export interface MenuItem {
 export class MenuService {
 
   items: Array<MenuItem>;
-  isVertical = true;
+  isVertical = true; 
   showingLeftSideMenu = false;
 
   toggleLeftSideMenu() : void {
