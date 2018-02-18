@@ -11,11 +11,12 @@ import { FieldDefinition } from '../field-definition';
   styleUrls: ['./dynamic-form.component.css']
 })
 export class DynamicFormComponent implements OnChanges, OnInit {
- 
+  // OnChanges se vola pokud se zmeni nejaky paramater (input) componenty
+
   @Input() vm: any;
   @Input() vmDefinition: Array<FieldDefinition>;
   @Input() operation: string;
-  @Input() errorMessage: string;
+  @Input() errorMessage: string; //idealni je take predavat error message pres FieldDefinition pro jednotlive pole
   @Output() update: EventEmitter<any> = new EventEmitter();
   @Output() create: EventEmitter<any> = new EventEmitter();
   
@@ -24,13 +25,15 @@ export class DynamicFormComponent implements OnChanges, OnInit {
   submitted = false;
   vmCopy: any;
   
+  // location - pohyv v DOM - back, refresh
   constructor(private router: Router,
               private route: ActivatedRoute,
               private location: Location) { }
   
   clearForm() {
     let group = {};
-    this.vmCopy = Object.assign({}, this.vm);
+    this.vmCopy = Object.assign({}, this.vm); // immutable pristup
+    // dynamicky vytvorime form - pokud chceme form vycistit, jakoby ho znovu vytvorime
     this.vmDefinition.forEach(field => {
       group[field.key] = field.required ? new FormControl(this.vmCopy[field.key], Validators.required)
                                               : new FormControl(this.vmCopy[field.key]);
@@ -39,7 +42,7 @@ export class DynamicFormComponent implements OnChanges, OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-     if (changes['errorMessage'].currentValue && this.status === 'waiting') {
+    if (changes['errorMessage'].currentValue && this.status === 'waiting') {
        this.status = "";
      }
   }
@@ -47,6 +50,8 @@ export class DynamicFormComponent implements OnChanges, OnInit {
   ngOnInit() {
     this.clearForm();
     
+    // pokud se zmeni parametr routy, tak chceme aby se prekreslil form
+    // muze se stat ze se zmeni routea a componenta se neprekresly - napriklad se zmeni parametr v route
     this.route.params.subscribe(params => {
       this.operation = params['operation'];
       this.clearForm();
@@ -71,6 +76,8 @@ export class DynamicFormComponent implements OnChanges, OnInit {
   }
 
   onEdit() {
+    // pokud jsme na detail, tak je nase routa localhost:4200/authentication/country-detail/1/detail
+    // chceme jit s stupen vyse localhost:4200/authentication/country-detail/1/ a pridat edit
     this.router.navigate(['../', 'edit'], { relativeTo: this.route});
   }
 
@@ -78,7 +85,7 @@ export class DynamicFormComponent implements OnChanges, OnInit {
     this.submitted = true;
     if (this.form.valid) {
       this.status = 'waiting';
-      this.update.emit(this.form.value);
+      this.update.emit(this.form.value); // zavola predanou eventu z country-detail.component
     }
   }
 }

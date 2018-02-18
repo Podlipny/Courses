@@ -3,6 +3,7 @@
   <h4>Sign In</h4>
   <form #signInForm="ngForm" (ngSubmit)="onSubmit(signInForm)" novalidate>
     <div class="form-group">
+      <!-- #username je tu kvuli validaci -->
       <input class="form-control" name="username" required placeholder="User Name" ngModel #username="ngModel" />
       <div [hidden]="username.valid || username.pristine" class="alert alert-danger">
         User Name is required.

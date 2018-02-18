@@ -12,6 +12,7 @@ export class UserService implements UserApi {
   constructor(private router: Router) { }
 
   signIn(username: string, password: string, rememberMe: boolean): Observable<any> {
+    // zde provedeme vsechny veci ohledne logingu atd
     console.log('UserService.signIn: ' + username + ' ' + password + ' ' + rememberMe);
     this.isAuthenticated = true;
     return Observable.of({}).delay(2000);

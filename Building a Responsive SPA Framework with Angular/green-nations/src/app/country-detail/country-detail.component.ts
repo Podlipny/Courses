@@ -13,6 +13,7 @@ import { FieldDefinition } from '../../fw/dynamic-forms/field-definition';
 export class CountryDetailComponent implements OnInit {
 
   country: Country;
+  // slouzi pro definici dynamic forms
   countryDefinition: Array<FieldDefinition> = [
     {
       key: 'id',
@@ -52,6 +53,7 @@ export class CountryDetailComponent implements OnInit {
   }
 
   ngOnInit() {
+    // nacteme parametr z routy
     this.operation = this.route.snapshot.params['operation'];
 
     if (this.operation === 'create') {

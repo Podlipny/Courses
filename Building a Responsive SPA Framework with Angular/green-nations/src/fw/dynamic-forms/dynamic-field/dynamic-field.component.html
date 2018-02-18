@@ -1,11 +1,13 @@
+<!-- pokud je oprace create, tak chceme skryt id -->
 <div [hidden]="operation === 'create' && field.isId" [formGroup]="form">
 
   <div [ngSwitch]="field.type">
 
     <div *ngSwitchCase="'string'" class="form-group">
+      <!-- HTML 5 linkuje [id]="field.key" s labelem [htmlFor]="field.key" -->
       <label [htmlFor]="field.key">{{ field.label }}</label>
       <input class="form-control" [formControlName]="field.key" [id]="field.key"
-              [readonly]="operation == 'details' || field.isId">
+              [readonly]="operation == 'details' || field.isId"> <!-- pokud je detail nebo id, tak jen readonly -->
     </div>
 
     <div *ngSwitchCase="'number'" class="form-group">
