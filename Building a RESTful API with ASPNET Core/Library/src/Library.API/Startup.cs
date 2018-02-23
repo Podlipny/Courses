@@ -144,6 +144,8 @@ namespace Library.API
                 {
                     appBuilder.Run(async context =>
                     {
+                        // globalne odchytavame exceptions a pokud je k dispozici exception handle feature - poskytuje informace o exception
+                        // tak logujeme pomoci NLog do souboru
                         var exceptionHandlerFeature = context.Features.Get<IExceptionHandlerFeature>();
                         if (exceptionHandlerFeature != null)
                         {
@@ -153,6 +155,8 @@ namespace Library.API
                                 exceptionHandlerFeature.Error.Message);
                         }
 
+                        // na zaver odesleme status code 500 a nasi error message
+                        // tyka se vsech neosetrenych chyb
                         context.Response.StatusCode = 500;
                         await context.Response.WriteAsync("An unexpected fault happened. Try again later.");
 
