@@ -1,0 +1,54 @@
+{
+	"id": "f678de5d-130c-f320-7791-44e8b29a14eb",
+	"name": "RESTful API ASP.NET Core - module 10",
+	"description": "",
+	"order": [
+		"fe6c58d8-e47d-e6fa-0848-924c489c67f3",
+		"94ea9992-5504-0ac2-7331-927bc1e37a1e"
+	],
+	"folders": [],
+	"timestamp": 1482239803345,
+	"owner": "805617",
+	"public": false,
+	"requests": [
+		{
+			"id": "94ea9992-5504-0ac2-7331-927bc1e37a1e",
+			"headers": "Content-Type: application/json\nAccept: application/json\n",
+			"url": "http://localhost:6058/api/authors/76053df4-6687-4353-8937-b45556748abe/books/bc4c35c3-3857-4250-9449-155fcf5109ec",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1483875004776,
+			"name": "PUT Book for Author",
+			"description": "",
+			"collectionId": "f678de5d-130c-f320-7791-44e8b29a14eb",
+			"responses": [],
+			"rawModeData": "{\n  \"title\": \"The Winds of Winter - Updated\",\n  \"description\": \"Forthcoming 6th novel in A Song of Ice and Fire. - Updated\"\n}"
+		},
+		{
+			"id": "fe6c58d8-e47d-e6fa-0848-924c489c67f3",
+			"headers": "Accept: application/json\n",
+			"url": "http://localhost:6058/api/authors/76053df4-6687-4353-8937-b45556748abe/books/bc4c35c3-3857-4250-9449-155fcf5109ec",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1484230903462,
+			"name": "GET Book for Author",
+			"description": "",
+			"collectionId": "f678de5d-130c-f320-7791-44e8b29a14eb",
+			"responses": []
+		}
+	]
+}
