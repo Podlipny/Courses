@@ -80,8 +80,8 @@ namespace Library.API
             // register the repository
             services.AddScoped<ILibraryRepository, LibraryRepository>();
 
+            // pridame URLhealper k tomu abyu jsme mohli vytvaret previsous a next link
             services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
-
             services.AddScoped<IUrlHelper>(implementationFactory =>
             {
                 var actionContext = implementationFactory.GetService<IActionContextAccessor>()
