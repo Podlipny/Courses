@@ -54,7 +54,7 @@ namespace Library.API.Helpers
                 }
 
                 // get the PropertyMappingValue
-                var propertyMappingValue = mappingDictionary[propertyName];
+                var propertyMappingValue = mappingDictionary[propertyName]; // jademe property name, ktery hledame, muzme mit vice values in URL
 
                 if (propertyMappingValue == null)
                 {

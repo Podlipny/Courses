@@ -9,6 +9,7 @@ namespace Library.API.Helpers
 {
     public static class IEnumerableExtensions
     {
+      // vezmeme list a vytahneme z nej pouze ty property co chceme
         public static IEnumerable<ExpandoObject> ShapeData<TSource>(
             this IEnumerable<TSource> source,
             string fields)
@@ -53,6 +54,7 @@ namespace Library.API.Helpers
                     // use reflection to get the property on the source object
                     // we need to include public and instance, b/c specifying a binding flag overwrites the
                     // already-existing binding flags.
+                    // ziskme property podle jejicho nazvu
                     var propertyInfo = typeof(TSource)
                         .GetProperty(propertyName, BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance);
 
@@ -73,7 +75,7 @@ namespace Library.API.Helpers
                 // selected properties & values
                 var dataShapedObject = new ExpandoObject();
 
-                // Get the value of each property we have to return.  For that,
+                // Get the value of each property we have to return. For that,
                 // we run through the list
                 foreach (var propertyInfo in propertyInfoList)
                 {

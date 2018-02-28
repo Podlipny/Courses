@@ -33,8 +33,7 @@ namespace Library.API.Controllers
 
     [HttpGet(Name = "GetAuthors")]
     [HttpHead]
-    public IActionResult GetAuthors(AuthorsResourceParameters authorsResourceParameters,
-        [FromHeader(Name = "Accept")] string mediaType)
+    public IActionResult GetAuthors(AuthorsResourceParameters authorsResourceParameters, [FromHeader(Name = "Accept")] string mediaType)
     {
       if (!_propertyMappingService.ValidMappingExistsFor<AuthorDto, Author>
          (authorsResourceParameters.OrderBy))
@@ -68,11 +67,13 @@ namespace Library.API.Controllers
         var links = CreateLinksForAuthors(authorsResourceParameters,
             authorsFromRepo.HasNext, authorsFromRepo.HasPrevious);
 
+        // shapujeme autory podle pozadovanych poli
         var shapedAuthors = authors.ShapeData(authorsResourceParameters.Fields);
 
         var shapedAuthorsWithLinks = shapedAuthors.Select(author =>
         {
           var authorAsDictionary = author as IDictionary<string, object>;
+          // ke kazdemu autorovy pridame URL link
           var authorLinks = CreateLinksForAuthor(
                       (Guid)authorAsDictionary["Id"], authorsResourceParameters.Fields);
 
