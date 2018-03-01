@@ -35,14 +35,12 @@ namespace Library.API.Controllers
     [HttpHead]
     public IActionResult GetAuthors(AuthorsResourceParameters authorsResourceParameters, [FromHeader(Name = "Accept")] string mediaType)
     {
-      if (!_propertyMappingService.ValidMappingExistsFor<AuthorDto, Author>
-         (authorsResourceParameters.OrderBy))
+      if (!_propertyMappingService.ValidMappingExistsFor<AuthorDto, Author>(authorsResourceParameters.OrderBy))
       {
         return BadRequest();
       }
 
-      if (!_typeHelperService.TypeHasProperties<AuthorDto>
-          (authorsResourceParameters.Fields))
+      if (!_typeHelperService.TypeHasProperties<AuthorDto>(authorsResourceParameters.Fields))
       {
         return BadRequest();
       }
@@ -61,11 +59,9 @@ namespace Library.API.Controllers
           totalPages = authorsFromRepo.TotalPages,
         };
 
-        Response.Headers.Add("X-Pagination",
-            Newtonsoft.Json.JsonConvert.SerializeObject(paginationMetadata));
+        Response.Headers.Add("X-Pagination", Newtonsoft.Json.JsonConvert.SerializeObject(paginationMetadata));
 
-        var links = CreateLinksForAuthors(authorsResourceParameters,
-            authorsFromRepo.HasNext, authorsFromRepo.HasPrevious);
+        var links = CreateLinksForAuthors(authorsResourceParameters, authorsFromRepo.HasNext, authorsFromRepo.HasPrevious);
 
         // shapujeme autory podle pozadovanych poli
         var shapedAuthors = authors.ShapeData(authorsResourceParameters.Fields);
@@ -74,8 +70,7 @@ namespace Library.API.Controllers
         {
           var authorAsDictionary = author as IDictionary<string, object>;
           // ke kazdemu autorovy pridame URL link
-          var authorLinks = CreateLinksForAuthor(
-                      (Guid)authorAsDictionary["Id"], authorsResourceParameters.Fields);
+          var authorLinks = CreateLinksForAuthor((Guid)authorAsDictionary["Id"], authorsResourceParameters.Fields);
 
           authorAsDictionary.Add("links", authorLinks);
 
@@ -163,7 +158,7 @@ namespace Library.API.Controllers
     [HttpGet("{id}", Name = "GetAuthor")]
     public IActionResult GetAuthor(Guid id, [FromQuery] string fields)
     {
-      if (!_typeHelperService.TypeHasProperties<AuthorDto> (fields))
+      if (!_typeHelperService.TypeHasProperties<AuthorDto>(fields))
       {
         return BadRequest();
       }
@@ -324,32 +319,21 @@ namespace Library.API.Controllers
       return links;
     }
 
-    private IEnumerable<LinkDto> CreateLinksForAuthors(
-        AuthorsResourceParameters authorsResourceParameters,
-        bool hasNext, bool hasPrevious)
+    private IEnumerable<LinkDto> CreateLinksForAuthors(AuthorsResourceParameters authorsResourceParameters, bool hasNext, bool hasPrevious)
     {
       var links = new List<LinkDto>();
 
       // self 
-      links.Add(
-         new LinkDto(CreateAuthorsResourceUri(authorsResourceParameters,
-         ResourceUriType.Current)
-         , "self", "GET"));
+      links.Add(new LinkDto(CreateAuthorsResourceUri(authorsResourceParameters, ResourceUriType.Current), "self", "GET"));
 
       if (hasNext)
       {
-        links.Add(
-          new LinkDto(CreateAuthorsResourceUri(authorsResourceParameters,
-          ResourceUriType.NextPage),
-          "nextPage", "GET"));
+        links.Add(new LinkDto(CreateAuthorsResourceUri(authorsResourceParameters, ResourceUriType.NextPage), "nextPage", "GET"));
       }
 
       if (hasPrevious)
       {
-        links.Add(
-            new LinkDto(CreateAuthorsResourceUri(authorsResourceParameters,
-            ResourceUriType.PreviousPage),
-            "previousPage", "GET"));
+        links.Add(new LinkDto(CreateAuthorsResourceUri(authorsResourceParameters, ResourceUriType.PreviousPage), "previousPage", "GET"));
       }
 
       return links;
