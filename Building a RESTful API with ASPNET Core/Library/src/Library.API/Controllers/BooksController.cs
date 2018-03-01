@@ -277,6 +277,7 @@ namespace Library.API.Controllers
             return NoContent();
         }
     
+        // vytvorime linky pro praci s endpointem book
         private BookDto CreateLinksForBook(BookDto book)
         {
             book.Links.Add(new LinkDto(_urlHelper.Link("GetBookForAuthor",
