@@ -47,27 +47,23 @@ namespace Library.API
         xmlDataContractSerializerInputFormatter.SupportedMediaTypes.Add("application/vnd.marvin.authorwithdateofdeath.full+xml");
         setupAction.InputFormatters.Add(xmlDataContractSerializerInputFormatter);
 
-        var jsonInputFormatter = setupAction.InputFormatters
-              .OfType<JsonInputFormatter>().FirstOrDefault();
-
+        var jsonInputFormatter = setupAction.InputFormatters.OfType<JsonInputFormatter>().FirstOrDefault();
+        // musime pridat vlastni MetaData type aby jsme ho mohli pouzivat
+        // v Header Accept si normalne posleme jeho nazev a jen porovnavame se string/enum
         if (jsonInputFormatter != null)
         {
-          jsonInputFormatter.SupportedMediaTypes
-                .Add("application/vnd.marvin.author.full+json");
-          jsonInputFormatter.SupportedMediaTypes
-                .Add("application/vnd.marvin.authorwithdateofdeath.full+json");
+          jsonInputFormatter.SupportedMediaTypes.Add("application/vnd.marvin.author.full+json");
+          jsonInputFormatter.SupportedMediaTypes.Add("application/vnd.marvin.authorwithdateofdeath.full+json");
         }
 
-        var jsonOutputFormatter = setupAction.OutputFormatters
-                  .OfType<JsonOutputFormatter>().FirstOrDefault();
+        var jsonOutputFormatter = setupAction.OutputFormatters.OfType<JsonOutputFormatter>().FirstOrDefault();
 
         if (jsonOutputFormatter != null)
         {
           jsonOutputFormatter.SupportedMediaTypes.Add("application/vnd.marvin.hateoas+json");
         }
 
-      })
-      .AddJsonOptions(options =>
+      }).AddJsonOptions(options =>
       {
         options.SerializerSettings.ContractResolver =
               new CamelCasePropertyNamesContractResolver();

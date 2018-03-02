@@ -20,10 +20,8 @@ namespace Library.API.Controllers
     private IPropertyMappingService _propertyMappingService;
     private ITypeHelperService _typeHelperService;
 
-    public AuthorsController(ILibraryRepository libraryRepository,
-        IUrlHelper urlHelper,
-        IPropertyMappingService propertyMappingService,
-        ITypeHelperService typeHelperService)
+    public AuthorsController(ILibraryRepository libraryRepository, IUrlHelper urlHelper,
+      IPropertyMappingService propertyMappingService, ITypeHelperService typeHelperService)
     {
       _libraryRepository = libraryRepository;
       _urlHelper = urlHelper;
@@ -33,8 +31,9 @@ namespace Library.API.Controllers
 
     [HttpGet(Name = "GetAuthors")]
     [HttpHead]
-    public IActionResult GetAuthors(AuthorsResourceParameters authorsResourceParameters, [FromHeader(Name = "Accept")] string mediaType)
+    public IActionResult GetAuthors(AuthorsResourceParameters authorsResourceParameters,[FromHeader(Name = "Accept")] string mediaType)
     {
+      //form header rikame, ze chceme data z headeru - Accept property
       if (!_propertyMappingService.ValidMappingExistsFor<AuthorDto, Author>(authorsResourceParameters.OrderBy))
       {
         return BadRequest();
@@ -46,9 +45,9 @@ namespace Library.API.Controllers
       }
 
       var authorsFromRepo = _libraryRepository.GetAuthors(authorsResourceParameters);
-
       var authors = Mapper.Map<IEnumerable<AuthorDto>>(authorsFromRepo);
-
+      
+      // Pokud v headeru prenasime ze chceme MediaType application/vnd.marvin.hateoas+json a ne application/json, tak vratime HATEAOS
       if (mediaType == "application/vnd.marvin.hateoas+json")
       {
         var paginationMetadata = new
@@ -65,35 +64,27 @@ namespace Library.API.Controllers
 
         // shapujeme autory podle pozadovanych poli
         var shapedAuthors = authors.ShapeData(authorsResourceParameters.Fields);
-
         var shapedAuthorsWithLinks = shapedAuthors.Select(author =>
         {
           var authorAsDictionary = author as IDictionary<string, object>;
           // ke kazdemu autorovy pridame URL link
-          var authorLinks = CreateLinksForAuthor((Guid)authorAsDictionary["Id"], authorsResourceParameters.Fields);
-
+          var authorLinks = CreateLinksForAuthor((Guid) authorAsDictionary["Id"], authorsResourceParameters.Fields);
           authorAsDictionary.Add("links", authorLinks);
-
           return authorAsDictionary;
         });
-
-        var linkedCollectionResource = new
-        {
-          value = shapedAuthorsWithLinks,
-          links = links
-        };
-
+        var linkedCollectionResource = new {value = shapedAuthorsWithLinks, links = links};
         return Ok(linkedCollectionResource);
       }
       else
       {
-        var previousPageLink = authorsFromRepo.HasPrevious ?
-            CreateAuthorsResourceUri(authorsResourceParameters,
-            ResourceUriType.PreviousPage) : null;
+        // pokud nechceme MataData okolo HATEAOS posleme jen standartni JSON, kde v headeru mame X-Pagination s nami vytvorenymi daty o pagination
+        var previousPageLink = authorsFromRepo.HasPrevious
+          ? CreateAuthorsResourceUri(authorsResourceParameters, ResourceUriType.PreviousPage)
+          : null;
 
-        var nextPageLink = authorsFromRepo.HasNext ?
-            CreateAuthorsResourceUri(authorsResourceParameters,
-            ResourceUriType.NextPage) : null;
+        var nextPageLink = authorsFromRepo.HasNext
+          ? CreateAuthorsResourceUri(authorsResourceParameters, ResourceUriType.NextPage)
+          : null;
 
         var paginationMetadata = new
         {
@@ -104,17 +95,12 @@ namespace Library.API.Controllers
           currentPage = authorsFromRepo.CurrentPage,
           totalPages = authorsFromRepo.TotalPages
         };
-
-        Response.Headers.Add("X-Pagination",
-            Newtonsoft.Json.JsonConvert.SerializeObject(paginationMetadata));
-
+        Response.Headers.Add("X-Pagination", Newtonsoft.Json.JsonConvert.SerializeObject(paginationMetadata));
         return Ok(authors.ShapeData(authorsResourceParameters.Fields));
       }
     }
 
-    private string CreateAuthorsResourceUri(
-        AuthorsResourceParameters authorsResourceParameters,
-        ResourceUriType type)
+    private string CreateAuthorsResourceUri(AuthorsResourceParameters authorsResourceParameters, ResourceUriType type)
     {
       switch (type)
       {
@@ -143,15 +129,15 @@ namespace Library.API.Controllers
         case ResourceUriType.Current:
         default:
           return _urlHelper.Link("GetAuthors",
-          new
-          {
-            fields = authorsResourceParameters.Fields,
-            orderBy = authorsResourceParameters.OrderBy,
-            searchQuery = authorsResourceParameters.SearchQuery,
-            genre = authorsResourceParameters.Genre,
-            pageNumber = authorsResourceParameters.PageNumber,
-            pageSize = authorsResourceParameters.PageSize
-          });
+            new
+            {
+              fields = authorsResourceParameters.Fields,
+              orderBy = authorsResourceParameters.OrderBy,
+              searchQuery = authorsResourceParameters.SearchQuery,
+              genre = authorsResourceParameters.Genre,
+              pageNumber = authorsResourceParameters.PageNumber,
+              pageSize = authorsResourceParameters.PageSize
+            });
       }
     }
 
@@ -164,27 +150,20 @@ namespace Library.API.Controllers
       }
 
       var authorFromRepo = _libraryRepository.GetAuthor(id);
-
       if (authorFromRepo == null)
       {
         return NotFound();
       }
 
       var author = Mapper.Map<AuthorDto>(authorFromRepo);
-
       var links = CreateLinksForAuthor(id, fields);
-
-      var linkedResourceToReturn = author.ShapeData(fields)
-          as IDictionary<string, object>;
-
+      var linkedResourceToReturn = author.ShapeData(fields) as IDictionary<string, object>;
       linkedResourceToReturn.Add("links", links);
-
       return Ok(linkedResourceToReturn);
     }
 
     [HttpPost(Name = "CreateAuthor")]
-    [RequestHeaderMatchesMediaType("Content-Type",
-        new[] { "application/vnd.marvin.author.full+json" })]
+    [RequestHeaderMatchesMediaType("Content-Type", new[] {"application/vnd.marvin.author.full+json"})]
     public IActionResult CreateAuthor([FromBody] AuthorForCreationDto author)
     {
       if (author == null)
@@ -193,9 +172,7 @@ namespace Library.API.Controllers
       }
 
       var authorEntity = Mapper.Map<Author>(author);
-
       _libraryRepository.AddAuthor(authorEntity);
-
       if (!_libraryRepository.Save())
       {
         // lepsi je returnout exception - je to vykonove narocnejsi, ale kodove lepsi
@@ -204,24 +181,18 @@ namespace Library.API.Controllers
       }
 
       var authorToReturn = Mapper.Map<AuthorDto>(authorEntity);
-
       var links = CreateLinksForAuthor(authorToReturn.Id, null);
       var linkedResourceToReturn = authorToReturn.ShapeData(null) as IDictionary<string, object>;
-
       linkedResourceToReturn.Add("links", links);
 
       // nereturnujeme objekt autora, ale zavolame metodu 
-      return CreatedAtRoute("GetAuthor", new { id = linkedResourceToReturn["Id"] }, linkedResourceToReturn);
+      return CreatedAtRoute("GetAuthor", new {id = linkedResourceToReturn["Id"]}, linkedResourceToReturn);
     }
 
-
     [HttpPost(Name = "CreateAuthorWithDateOfDeath")]
-    [RequestHeaderMatchesMediaType("Content-Type",
-        new[] { "application/vnd.marvin.authorwithdateofdeath.full+json",
-                    "application/vnd.marvin.authorwithdateofdeath.full+xml" })]
+    [RequestHeaderMatchesMediaType("Content-Type", new[] {"application/vnd.marvin.authorwithdateofdeath.full+json", "application/vnd.marvin.authorwithdateofdeath.full+xml" })]
     // [RequestHeaderMatchesMediaType("Accept", new[] { "..." })]
-    public IActionResult CreateAuthorWithDateOfDeath(
-        [FromBody] AuthorForCreationWithDateOfDeathDto author)
+    public IActionResult CreateAuthorWithDateOfDeath([FromBody] AuthorForCreationWithDateOfDeathDto author)
     {
       if (author == null)
       {
@@ -229,9 +200,7 @@ namespace Library.API.Controllers
       }
 
       var authorEntity = Mapper.Map<Author>(author);
-
       _libraryRepository.AddAuthor(authorEntity);
-
       if (!_libraryRepository.Save())
       {
         throw new Exception("Creating an author failed on save.");
@@ -239,17 +208,10 @@ namespace Library.API.Controllers
       }
 
       var authorToReturn = Mapper.Map<AuthorDto>(authorEntity);
-
       var links = CreateLinksForAuthor(authorToReturn.Id, null);
-
-      var linkedResourceToReturn = authorToReturn.ShapeData(null)
-          as IDictionary<string, object>;
-
+      var linkedResourceToReturn = authorToReturn.ShapeData(null) as IDictionary<string, object>;
       linkedResourceToReturn.Add("links", links);
-
-      return CreatedAtRoute("GetAuthor",
-          new { id = linkedResourceToReturn["Id"] },
-          linkedResourceToReturn);
+      return CreatedAtRoute("GetAuthor", new {id = linkedResourceToReturn["Id"]}, linkedResourceToReturn);
     }
 
     [HttpPost("{id}")]
@@ -273,7 +235,6 @@ namespace Library.API.Controllers
       }
 
       _libraryRepository.DeleteAuthor(authorFromRepo);
-
       if (!_libraryRepository.Save())
       {
         throw new Exception($"Deleting author {id} failed on save.");
@@ -285,55 +246,40 @@ namespace Library.API.Controllers
     private IEnumerable<LinkDto> CreateLinksForAuthor(Guid id, string fields)
     {
       var links = new List<LinkDto>();
-
       if (string.IsNullOrWhiteSpace(fields))
       {
-        links.Add(
-          new LinkDto(_urlHelper.Link("GetAuthor", new { id = id }),
-          "self",
-          "GET"));
+        links.Add(new LinkDto(_urlHelper.Link("GetAuthor", new {id = id}), "self", "GET"));
       }
       else
       {
-        links.Add(
-          new LinkDto(_urlHelper.Link("GetAuthor", new { id = id, fields = fields }),
-          "self",
-          "GET"));
+        links.Add(new LinkDto(_urlHelper.Link("GetAuthor", new {id = id, fields = fields}), "self", "GET"));
       }
 
-      links.Add(
-        new LinkDto(_urlHelper.Link("DeleteAuthor", new { id = id }),
-        "delete_author",
-        "DELETE"));
-
-      links.Add(
-        new LinkDto(_urlHelper.Link("CreateBookForAuthor", new { authorId = id }),
-        "create_book_for_author",
+      links.Add(new LinkDto(_urlHelper.Link("DeleteAuthor", new {id = id}), "delete_author", "DELETE"));
+      links.Add(new LinkDto(_urlHelper.Link("CreateBookForAuthor", new {authorId = id}), "create_book_for_author",
         "POST"));
-
-      links.Add(
-         new LinkDto(_urlHelper.Link("GetBooksForAuthor", new { authorId = id }),
-         "books",
-         "GET"));
-
+      links.Add(new LinkDto(_urlHelper.Link("GetBooksForAuthor", new {authorId = id}), "books", "GET"));
       return links;
     }
 
-    private IEnumerable<LinkDto> CreateLinksForAuthors(AuthorsResourceParameters authorsResourceParameters, bool hasNext, bool hasPrevious)
+    private IEnumerable<LinkDto> CreateLinksForAuthors(AuthorsResourceParameters authorsResourceParameters,
+      bool hasNext, bool hasPrevious)
     {
       var links = new List<LinkDto>();
 
       // self 
-      links.Add(new LinkDto(CreateAuthorsResourceUri(authorsResourceParameters, ResourceUriType.Current), "self", "GET"));
-
+      links.Add(
+        new LinkDto(CreateAuthorsResourceUri(authorsResourceParameters, ResourceUriType.Current), "self", "GET"));
       if (hasNext)
       {
-        links.Add(new LinkDto(CreateAuthorsResourceUri(authorsResourceParameters, ResourceUriType.NextPage), "nextPage", "GET"));
+        links.Add(new LinkDto(CreateAuthorsResourceUri(authorsResourceParameters, ResourceUriType.NextPage), "nextPage",
+          "GET"));
       }
 
       if (hasPrevious)
       {
-        links.Add(new LinkDto(CreateAuthorsResourceUri(authorsResourceParameters, ResourceUriType.PreviousPage), "previousPage", "GET"));
+        links.Add(new LinkDto(CreateAuthorsResourceUri(authorsResourceParameters, ResourceUriType.PreviousPage),
+          "previousPage", "GET"));
       }
 
       return links;

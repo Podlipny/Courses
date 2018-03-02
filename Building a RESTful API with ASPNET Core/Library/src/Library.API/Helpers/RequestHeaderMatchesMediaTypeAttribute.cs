@@ -12,25 +12,17 @@ namespace Library.API.Helpers
         private readonly string[] _mediaTypes;
         private readonly string _requestHeaderToMatch;
 
-        public RequestHeaderMatchesMediaTypeAttribute(string requestHeaderToMatch,
-            string[] mediaTypes)
+        public RequestHeaderMatchesMediaTypeAttribute(string requestHeaderToMatch, string[] mediaTypes)
         {
             _requestHeaderToMatch = requestHeaderToMatch;
             _mediaTypes = mediaTypes;
         }
 
-        public int Order
-        {
-            get
-            {
-                return 0;
-            }
-        }
+        public int Order { get { return 0; } }
 
         public bool Accept(ActionConstraintContext context)
         {
             var requestHeaders = context.RouteContext.HttpContext.Request.Headers;
-
             if (!requestHeaders.ContainsKey(_requestHeaderToMatch))
             {
                 return false;
@@ -39,9 +31,8 @@ namespace Library.API.Helpers
             // if one of the media types matches, return true
             foreach (var mediaType in _mediaTypes)
             {
-                var mediaTypeMatches = string.Equals(requestHeaders[_requestHeaderToMatch].ToString(),
-                    mediaType, StringComparison.OrdinalIgnoreCase);
-
+                var mediaTypeMatches = string.Equals(requestHeaders[_requestHeaderToMatch].ToString(), mediaType,
+                    StringComparison.OrdinalIgnoreCase);
                 if (mediaTypeMatches)
                 {
                     return true;
