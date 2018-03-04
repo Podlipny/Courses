@@ -92,6 +92,7 @@ namespace Library.API
       services.AddTransient<ITypeHelperService, TypeHelperService>();
             // pridame URLhealper k tomu abyu jsme mohli vytvaret previsous a next link
             services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
+
       services.AddHttpCacheHeaders(
           (expirationModelOptions)
           =>

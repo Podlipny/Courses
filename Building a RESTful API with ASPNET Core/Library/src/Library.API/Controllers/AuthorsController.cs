@@ -72,6 +72,7 @@ namespace Library.API.Controllers
           authorAsDictionary.Add("links", authorLinks);
           return authorAsDictionary;
         });
+
         var linkedCollectionResource = new {value = shapedAuthorsWithLinks, links = links};
         return Ok(linkedCollectionResource);
       }
