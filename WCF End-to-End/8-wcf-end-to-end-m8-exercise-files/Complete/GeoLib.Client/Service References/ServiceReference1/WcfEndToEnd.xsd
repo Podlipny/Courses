@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.pluralsight.com/MiguelCastro/WcfEndToEnd" elementFormDefault="qualified" targetNamespace="http://www.pluralsight.com/MiguelCastro/WcfEndToEnd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ZipCodeData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZipCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ZipCodeData" nillable="true" type="tns:ZipCodeData" />
+  <xs:complexType name="ArrayOfZipCodeData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ZipCodeData" nillable="true" type="tns:ZipCodeData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfZipCodeData" nillable="true" type="tns:ArrayOfZipCodeData" />
+</xs:schema>

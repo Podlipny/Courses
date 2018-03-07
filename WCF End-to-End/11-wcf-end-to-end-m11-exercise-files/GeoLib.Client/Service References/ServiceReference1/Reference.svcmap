@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5a03d630-6088-4727-b71f-2cd78b433fa9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://localhost:8009/GeoService/MEX" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="894a53c3-75f1-436a-9737-091d383f1bcf" SourceId="1" SourceUrl="net.tcp://localhost:8009/GeoService/MEX" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="4736dca3-8ace-464e-a3f1-aa1a0593f1a9" SourceId="1" SourceUrl="net.tcp://localhost:8009/GeoService/MEX" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="5a88e888-cbac-46b9-a75a-ccb4091b1d1c" SourceId="1" SourceUrl="net.tcp://localhost:8009/GeoService/MEX" />
+    <MetadataFile FileName="WcfEndToEnd.xsd" MetadataType="Schema" ID="b3e8a9df-7739-4b03-9e86-c96879369bd2" SourceId="1" SourceUrl="net.tcp://localhost:8009/GeoService/MEX" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="4d95a663-5232-4e9d-823a-3895e6b8cd32" SourceId="1" SourceUrl="net.tcp://localhost:8009/GeoService/MEX" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
