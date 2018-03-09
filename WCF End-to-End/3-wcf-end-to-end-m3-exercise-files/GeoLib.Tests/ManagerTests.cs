@@ -15,8 +15,10 @@ namespace GeoLib.Tests
         [TestMethod]
         public void test_zip_code_retrieval()
         {
+            // nadefinujeme si mock
             Mock<IZipCodeRepository> mockZipCodeRepository = new Mock<IZipCodeRepository>();
 
+            // udelame mock object
             ZipCode zipCode = new ZipCode()
             {
                 City = "LINCOLN PARK",
@@ -24,6 +26,8 @@ namespace GeoLib.Tests
                 Zip = "07035"
             };
 
+            // pokud mock dostane request na GetByZip("07035"), tak vratime nas zipCode entity]
+            // testujeme kod uvnitr service a ne uvnitr repository
             mockZipCodeRepository.Setup(obj => obj.GetByZip("07035")).Returns(zipCode);
 
             IGeoService geoService = new GeoManager(mockZipCodeRepository.Object);
