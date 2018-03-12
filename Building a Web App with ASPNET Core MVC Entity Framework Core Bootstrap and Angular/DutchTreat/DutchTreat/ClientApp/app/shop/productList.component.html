@@ -1,0 +1,12 @@
+﻿<div class="row">
+
+  <div class="product-info col-md-4 well well-sm" *ngFor="let p of products">
+    <img src="/img/{{ p.artId }}.jpg" class="img-responsive" [alt]="p.title" />
+    <div class="product-name">{{ p.category }} - {{ p.size }}</div>
+    <div><strong>Price</strong>: {{ p.price | currency:"USD":true }}</div>
+    <div><strong>Artist</strong>: {{ p.artist }}</div>
+    <div><strong>Title</strong>: {{ p.title }}</div>
+    <div><strong>Description</strong>: {{ p.artDescription }}</div>
+    <button id="buyButton" class="btn btn-success btn-sm pull-right" (click)="addProduct(p)" >Buy</button>
+  </div>
+</div>
