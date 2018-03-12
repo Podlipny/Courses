@@ -1,0 +1,112 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoLib.Data", "GeoLib.Data\GeoLib.Data.csproj", "{DB2CA02F-5D34-4734-8A44-634BFD381244}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoLib.Core", "GeoLib.Core\GeoLib.Core.csproj", "{461922D9-747F-4BB0-AC2E-4737139EEDB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoLib.ConsoleHost", "GeoLib.ConsoleHost\GeoLib.ConsoleHost.csproj", "{AE7FEC83-00F1-4CD7-B94E-AB467D9ACDE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoLib.Business.Entities", "GeoLib.Business.Entities\GeoLib.Business.Entities.csproj", "{F75B5E1B-16B0-4254-8DF2-E5484A4246EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoLib.Client.Entities", "GeoLib.Client.Entities\GeoLib.Client.Entities.csproj", "{B0F1DF08-5974-471B-B418-273FA44D0EE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoLib.Business.Contracts", "GeoLib.Business.Contracts\GeoLib.Business.Contracts.csproj", "{62F009D5-9395-4BDB-98AC-D7EBDE8A57CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoLib.Business.Managers", "GeoLib.Business.Managers\GeoLib.Business.Managers.csproj", "{B82D6CDB-7E45-42A8-8980-B081269E51AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoLib.Client.Proxies", "GeoLib.Client.Proxies\GeoLib.Client.Proxies.csproj", "{27D64758-CCBA-40D0-A61C-9FF7F892177E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{17CE4BBC-A389-4B59-9EDC-F41CCAE5C9EB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{A7BE4E11-DEEB-4C6A-80BB-C808724BAE89}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hosting", "Hosting", "{1F02F01A-2CA4-4A70-8A05-4125CF395EA1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{6376F28B-8E3C-4B52-ABBA-94F8BC6F8B1C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{7EF53ED3-B90A-484D-BF3E-46C7EC4182E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoLib.Desktop", "GeoLib.Desktop\GeoLib.Desktop.csproj", "{808654B0-2C7A-4239-B74D-BBC73C23FFDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoLib.Common.Contracts", "GeoLib.Common.Contracts\GeoLib.Common.Contracts.csproj", "{5F1FFDBA-BBAA-4E8A-BE50-4A29675DD500}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoLib.Client.Contracts", "GeoLib.Client.Contracts\GeoLib.Client.Contracts.csproj", "{C2C4408A-36E6-46EB-9367-AD0C229C831E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{E83AE21B-E579-4897-89AA-44317FAF9E51}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB2CA02F-5D34-4734-8A44-634BFD381244}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB2CA02F-5D34-4734-8A44-634BFD381244}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB2CA02F-5D34-4734-8A44-634BFD381244}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB2CA02F-5D34-4734-8A44-634BFD381244}.Release|Any CPU.Build.0 = Release|Any CPU
+		{461922D9-747F-4BB0-AC2E-4737139EEDB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{461922D9-747F-4BB0-AC2E-4737139EEDB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{461922D9-747F-4BB0-AC2E-4737139EEDB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{461922D9-747F-4BB0-AC2E-4737139EEDB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE7FEC83-00F1-4CD7-B94E-AB467D9ACDE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE7FEC83-00F1-4CD7-B94E-AB467D9ACDE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE7FEC83-00F1-4CD7-B94E-AB467D9ACDE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE7FEC83-00F1-4CD7-B94E-AB467D9ACDE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F75B5E1B-16B0-4254-8DF2-E5484A4246EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F75B5E1B-16B0-4254-8DF2-E5484A4246EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F75B5E1B-16B0-4254-8DF2-E5484A4246EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F75B5E1B-16B0-4254-8DF2-E5484A4246EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0F1DF08-5974-471B-B418-273FA44D0EE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0F1DF08-5974-471B-B418-273FA44D0EE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0F1DF08-5974-471B-B418-273FA44D0EE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0F1DF08-5974-471B-B418-273FA44D0EE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62F009D5-9395-4BDB-98AC-D7EBDE8A57CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62F009D5-9395-4BDB-98AC-D7EBDE8A57CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62F009D5-9395-4BDB-98AC-D7EBDE8A57CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62F009D5-9395-4BDB-98AC-D7EBDE8A57CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B82D6CDB-7E45-42A8-8980-B081269E51AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B82D6CDB-7E45-42A8-8980-B081269E51AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B82D6CDB-7E45-42A8-8980-B081269E51AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B82D6CDB-7E45-42A8-8980-B081269E51AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27D64758-CCBA-40D0-A61C-9FF7F892177E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27D64758-CCBA-40D0-A61C-9FF7F892177E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27D64758-CCBA-40D0-A61C-9FF7F892177E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27D64758-CCBA-40D0-A61C-9FF7F892177E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{808654B0-2C7A-4239-B74D-BBC73C23FFDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{808654B0-2C7A-4239-B74D-BBC73C23FFDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{808654B0-2C7A-4239-B74D-BBC73C23FFDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{808654B0-2C7A-4239-B74D-BBC73C23FFDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F1FFDBA-BBAA-4E8A-BE50-4A29675DD500}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F1FFDBA-BBAA-4E8A-BE50-4A29675DD500}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F1FFDBA-BBAA-4E8A-BE50-4A29675DD500}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F1FFDBA-BBAA-4E8A-BE50-4A29675DD500}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2C4408A-36E6-46EB-9367-AD0C229C831E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2C4408A-36E6-46EB-9367-AD0C229C831E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2C4408A-36E6-46EB-9367-AD0C229C831E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2C4408A-36E6-46EB-9367-AD0C229C831E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DB2CA02F-5D34-4734-8A44-634BFD381244} = {7EF53ED3-B90A-484D-BF3E-46C7EC4182E9}
+		{461922D9-747F-4BB0-AC2E-4737139EEDB6} = {6376F28B-8E3C-4B52-ABBA-94F8BC6F8B1C}
+		{AE7FEC83-00F1-4CD7-B94E-AB467D9ACDE5} = {1F02F01A-2CA4-4A70-8A05-4125CF395EA1}
+		{F75B5E1B-16B0-4254-8DF2-E5484A4246EB} = {17CE4BBC-A389-4B59-9EDC-F41CCAE5C9EB}
+		{B0F1DF08-5974-471B-B418-273FA44D0EE7} = {A7BE4E11-DEEB-4C6A-80BB-C808724BAE89}
+		{62F009D5-9395-4BDB-98AC-D7EBDE8A57CF} = {17CE4BBC-A389-4B59-9EDC-F41CCAE5C9EB}
+		{B82D6CDB-7E45-42A8-8980-B081269E51AE} = {17CE4BBC-A389-4B59-9EDC-F41CCAE5C9EB}
+		{27D64758-CCBA-40D0-A61C-9FF7F892177E} = {A7BE4E11-DEEB-4C6A-80BB-C808724BAE89}
+		{808654B0-2C7A-4239-B74D-BBC73C23FFDB} = {1F02F01A-2CA4-4A70-8A05-4125CF395EA1}
+		{5F1FFDBA-BBAA-4E8A-BE50-4A29675DD500} = {6376F28B-8E3C-4B52-ABBA-94F8BC6F8B1C}
+		{C2C4408A-36E6-46EB-9367-AD0C229C831E} = {A7BE4E11-DEEB-4C6A-80BB-C808724BAE89}
+	EndGlobalSection
+EndGlobal

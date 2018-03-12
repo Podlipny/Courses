@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="GeoManager" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IGeoService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1">
+        </msb:BinaryEncoding>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256>
+                </sp:Basic256>
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict>
+                </sp:Strict>
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing>
+        </wsaw:UsingAddressing>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://www.pluralsight.com/MiguelCastro/WcfEndToEnd" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IGeoService_GetZipInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetZipInfo" />
+  </wsdl:message>
+  <wsdl:message name="IGeoService_GetZipInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetZipInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeoService_GetStates_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStates" />
+  </wsdl:message>
+  <wsdl:message name="IGeoService_GetStates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeoService_GetZipsByState_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetZipsByState" />
+  </wsdl:message>
+  <wsdl:message name="IGeoService_GetZipsByState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetZipsByStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeoService_GetZipsForRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetZipsForRange" />
+  </wsdl:message>
+  <wsdl:message name="IGeoService_GetZipsForRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetZipsForRangeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IGeoService">
+    <wsdl:operation name="GetZipInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeoService/GetZipInfo" message="tns:IGeoService_GetZipInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeoService/GetZipInfoResponse" message="tns:IGeoService_GetZipInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStates">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeoService/GetStates" message="tns:IGeoService_GetStates_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeoService/GetStatesResponse" message="tns:IGeoService_GetStates_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetZipsByState">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeoService/GetZipsByState" message="tns:IGeoService_GetZipsByState_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeoService/GetZipsByStateResponse" message="tns:IGeoService_GetZipsByState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetZipsForRange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeoService/GetZipsForRange" message="tns:IGeoService_GetZipsForRange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeoService/GetZipsForRangeResponse" message="tns:IGeoService_GetZipsForRange_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IGeoService" type="tns:IGeoService">
+    <wsp:PolicyReference URI="#NetTcpBinding_IGeoService_policy">
+    </wsp:PolicyReference>
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="GetZipInfo">
+      <soap12:operation soapAction="http://tempuri.org/IGeoService/GetZipInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStates">
+      <soap12:operation soapAction="http://tempuri.org/IGeoService/GetStates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetZipsByState">
+      <soap12:operation soapAction="http://tempuri.org/IGeoService/GetZipsByState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetZipsForRange">
+      <soap12:operation soapAction="http://tempuri.org/IGeoService/GetZipsForRange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GeoManager">
+    <wsdl:port name="NetTcpBinding_IGeoService" binding="tns:NetTcpBinding_IGeoService">
+      <soap12:address location="net.tcp://localhost:8009/GeoService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8009/GeoService</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>MOBILE5\Miguel</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
