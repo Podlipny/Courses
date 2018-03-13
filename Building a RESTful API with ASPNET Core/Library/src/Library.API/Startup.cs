@@ -150,9 +150,7 @@ namespace Library.API
                     if (exceptionHandlerFeature != null)
                     {
                       var logger = loggerFactory.CreateLogger("Global exception logger");
-                      logger.LogError(500,
-                                  exceptionHandlerFeature.Error,
-                                  exceptionHandlerFeature.Error.Message);
+                      logger.LogError(500, exceptionHandlerFeature.Error, exceptionHandlerFeature.Error.Message);
                     }
 
                     // na zaver odesleme status code 500 a nasi error message
