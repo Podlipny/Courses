@@ -33,9 +33,11 @@ class App extends Component {
   }
 
   determineUniqueCountries = () => {
+    // nacteme si vsechny unikatni countries
     const countries = this.allHouses
       ? Array.from(new Set(this.allHouses.map(h => h.country)))
       : [];
+    // chceme prvni item blank
     countries.unshift(null);
     this.setState({ countries });
   }
@@ -52,6 +54,7 @@ class App extends Component {
   }
 
   render() {
+    // pomoci activeComponent zajistime ze pokud nebude vybrana zadna country, tak se vyrenderuje FeaturedHouse
     let activeComponent = null;
     if (this.state.country)
     activeComponent = <SearchResults country={this.state.country} 
