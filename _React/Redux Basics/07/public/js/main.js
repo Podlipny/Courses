@@ -17,5 +17,5 @@ class MainComponent extends React.Component {
   }
 }
 
-
+// provider zajisti vsem componentam pristup ke storu
 ReactDOM.render(<Provider store={store}><MainComponent /></Provider>, document.getElementById('container'));
