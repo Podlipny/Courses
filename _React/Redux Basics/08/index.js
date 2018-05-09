@@ -68,6 +68,7 @@ store.dispatch({type: 'INCREMENT'});
 function createStore(reducer, enhancer) {
 
   if (typeof enhancer === "function") {
+    // volame function enhancer(createStore), ktera nam vraci function ktere predavame (reducer)
     return enhancer(createStore)(reducer);
   }
 
@@ -75,31 +76,32 @@ function createStore(reducer, enhancer) {
   var subscriptions = [];
 
   var obj = {
-    getState: function() {
+    getState: function () {
       return state;
     },
-    dispatch: function(action) {
+    dispatch: function (action) {
       // call the reducer
       state = reducer(state, action);
       // call the subscribed fns
-      subscriptions.forEach(function(fn){
-	fn();
-      })
+      subscriptions.forEach(function (fn) {
+        fn();
+      });
 
       return action;
     },
-    subscribe: function(fn) {
+    subscribe: function (fn) {
       // subscribe the fn
       subscriptions.push(fn);
       // returns an unsubscribe function
       return function unsubscribe() {
-	// find listener fn in sub array and remove it
-	var index = subscriptions.indexOf(fn);
-	subscriptions.splice(index, 1);
+        // find listener fn in sub array and remove it
+        var index = subscriptions.indexOf(fn);
+        subscriptions.splice(index, 1);
       }
     }
   }
 
+  // aby se state inicializoval, tak musime aspon jednou zavolat dispatch
   obj.dispatch({type: 'REDUX_INIT'});
   return obj;
 }
@@ -121,22 +123,23 @@ function combineReducers(stateTree) {
   }
 }
 
-
 function applyMiddleware(...fns) {
 
-  return function(createStore) {
+return function (createStore) {
 
-    return function(reducer) {
-      var store = createStore(reducer);
-      var oldDispatch = store.dispatch;
+  return function (reducer) {
+    var store = createStore(reducer);
+    var oldDispatch = store.dispatch;
 
-      // modify dispatch
-      store.dispatch = fns.reduceRight(function(prev, curr) {
-	return curr(store)(prev); // ie: dispatch = logger(store)(oldDispatch)
-      }, oldDispatch)
+    // modify dispatch
+    // modifikujeme dispatch aby zavolal middleware
+    // postupne volame middleware - prev je vlastne oldDispatch
+    store.dispatch = fns.reduceRight(function (prev, curr) {
+      return curr(store)(prev); // ie: dispatch = logger(store)(oldDispatch)
+    }, oldDispatch)
 
-      return store;
-    }
+    return store;
   }
+}
 
 }
