@@ -1,6 +1,7 @@
 const path = require('path');
 const SERVER_DIR = path.resolve(__dirname, 'ServerApp');
 const BUILD_DIR = path.resolve(__dirname, 'build');
+// musime rict webpacku aby ignoroval express v bundle
 const webpackNodeExternals = require('webpack-node-externals');
 
 const merge = require('webpack-merge');

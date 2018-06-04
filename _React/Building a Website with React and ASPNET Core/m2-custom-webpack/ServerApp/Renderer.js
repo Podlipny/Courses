@@ -6,6 +6,7 @@ import FullPage from '../ClientApp/Components/common/FullPage';
 
 export default (req) => {
     let context = {};
+    // pouzivame react-dom/server
     const content = renderToString(
         <Router location={req.path} context={context}>
             <FullPage />
