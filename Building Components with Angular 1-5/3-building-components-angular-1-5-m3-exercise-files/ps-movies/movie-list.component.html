@@ -1,0 +1,46 @@
+<div>
+    <table class="table">
+        <tr>
+            <th>Title</th>
+            <th>Length</th>
+            <th>Rating</th>
+            <th></th>
+        </tr>
+        <tr ng-repeat="movie in model.movies">
+            <td>{{movie.title}}</td>
+            <td>{{movie.length}}</td>
+            <td>
+                <movie-rating value="movie.rating" max="5" set-rating="model.setRating(movie, value)">
+                </movie-rating>
+            </td>
+            <td>
+
+                <button class="btn btn-default" ng-click="model.upRating(movie)">
+                    <span class="glyphicon glyphicon-plus"> </span>
+                </button>
+                <button class="btn btn-default" ng-click="model.downRating(movie)">
+                    <span class="glyphicon glyphicon-minus"></span>
+                </button>
+                <a class="btn btn-default" ng-link="['Details', { id:movie.id }, 'Overview']">
+                    <span class="glyphicon glyphicon-zoom-in"></span>
+                </a>
+                <button class="btn btn-default" ng-click="model.goTo(movie.id)">
+                    <span class="glyphicon glyphicon-zoom-in"></span>
+                </button>
+            </td>
+        </tr>
+    </table>
+    <div>
+        <ng-outlet></ng-outlet>
+    </div>
+
+    <accordion>
+        <accordion-panel heading="Panel 1">
+                This is the body for panel 1
+        </accordion-panel>
+        <accordion-panel heading="Panel 2">            
+                This is the body for panel 2            
+        </accordion-panel>
+    </accordion>
+   
+</div>
