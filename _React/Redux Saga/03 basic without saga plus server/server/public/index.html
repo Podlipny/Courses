@@ -1,0 +1,185 @@
+<head>
+    <title>
+        Redux Cart Server
+    </title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<h2>About</h2>
+<p>
+    A demo REST API to integrate with a Redux Saga shopping cart app.
+</p>
+<body class="container">
+<h3>
+    Routes
+</h3>
+<table class="table">
+    <tr>
+        <th>
+            route
+        </th>
+        <th>
+            url
+        </th>
+        <th>
+            about
+        </th>
+    </tr>
+    <tr>
+        <td>
+            User
+        </td>
+        <td>
+            <a href="/user/U10000">
+                /user/:id
+            </a>
+        </td>
+        <td>
+            Returns data on the given user ID
+        </td>
+    </tr>
+	 <tr>
+        <td>
+            Cart
+        </td>
+        <td>
+            <a href="/cart/U10000">
+                /user/:owner
+            </a>
+        </td>
+        <td>
+            Returns all items in user's cart, or an error if no cart exists.	
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Cart Add Item
+        </td>
+        <td>
+            <a href="/cart/add/U10000/I10000">
+                /cart/add/:owner/:itemID
+            </a>
+        </td>
+        <td>
+            Adds an item to the specified owner's cart with the specified ID.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Cart Remove Item
+        </td>
+        <td>
+            <a href="/cart/remove/U10000/I10000">
+                /cart/remove/:owner/:itemID
+            </a>
+        </td>
+        <td>
+            Removes one unit of the specified item from the specified owner's cart.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Items
+        </td>
+        <td>
+            <a href="/items/I10000,I20000">
+                /items/:ids
+            </a>
+        </td>
+        <td>
+            Returns metadata for a collection of comma-separated item IDS.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Prices
+        </td>
+        <td>
+            <a href="/prices/CAD/I30000">
+                /prices/:symbol/:ids
+            </a>
+        </td>
+        <td>
+            Returns the prices of the specified items in the specified symbol
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Shipping
+        </td>
+        <td>
+            <a href="/shipping/I30000,I50000">
+                /shipping/:ids
+            </a>
+        </td>
+        <td>
+            Calculates the shipping costs for a block of item IDS.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Tax
+        </td>
+        <td>
+            <a href="/tax/USD">
+                /tax/:symbol
+            </a>
+        </td>
+        <td>
+            Returns the tax rate for the given currency or an <a href="/tax/FRA">error</a> if one can't be found.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Checkout (TBC)
+        </td>
+        <td>
+            /checkout/:owner
+        </td>
+        <td>
+            Purchases all the items in the cart, or purchases none of the items in the cart if any errors occur.
+        </td>
+    </tr>
+	<tr>
+        <td>
+            Card (Validate)
+        </td>
+        <td>
+            <a href="/card/validate/U10000">
+                /card/validate/:owner
+            </a>
+        </td>
+        <td>
+            Validates the owner's credit card - always returns {validated:true}
+        </td>
+    </tr>
+	<tr>
+        <td>
+            Cart (Validate)
+        </td>
+        <td>
+            <a href="/cart/validate/U10000">
+                /cart/validate/:owner
+            </a>
+        </td>
+        <td>
+            Validates the cart - returns {validated:true} if all cart items are in stock
+        </td>
+    </tr>
+	<tr>
+        <td>
+            Card (charge)
+        </td>
+        <td>
+            <a href="/card/charge/U10000">
+                /cart/charge/:owner
+            </a>
+        </td>
+        <td>
+            Charges the user and purchases all items. Returns { success: true } if sufficient funds were available.
+        </td>
+    </tr>
+    <tr>
+
+    </tr>
+</table>
+</body>
