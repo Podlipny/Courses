@@ -14,7 +14,9 @@ import {
 } from '../selectors'
 
 export function* handleIncreaseItemQuantity({id}){
+    // nastavime stav a FETCHING
     yield put(setItemQuantityFetchStatus(FETCHING));
+    // invoke currentUserSelector ze selectoru
     const user = yield select(currentUserSelector);
     const response = yield call(fetch,`http://localhost:8081/cart/add/${user.get('id')}/${id}`);
     console.info("Got response,",response);
@@ -41,6 +43,7 @@ export function* handleDecreaseItemQuantity({id, local}) {
 }
 
 export function* itemQuantitySaga(){
+    // yield array interpretuje vsechny efekty
     yield [
         takeLatest(DECREASE_ITEM_QUANTITY, handleDecreaseItemQuantity),
         takeLatest(INCREASE_ITEM_QUANTITY, handleIncreaseItemQuantity)
