@@ -16,10 +16,13 @@ describe("The current user saga",()=>{
         const response = {json};
         const gen = currentUserSaga();
 
+        // timto mockujeme API
         expect(gen.next().value).toEqual(take(GET_CURRENT_USER_INFO));
         expect(gen.next({id}).value).toEqual(call(fetch,`http://localhost:8081/user/${id}`));
+        // cekame ze se nam v currentUserSaga vrati response, proto ji pomoci next podstrcime
         expect(gen.next(response).value).toEqual(apply(response,json));
-        expect(gen.next(user).value).toEqual(put(setCurrentUser(user)));
+        // cekame ze pokud predame v next usera, tak dojde k PUT put(setCurrentUser(user))
+        expect(gen.next(user).value).toEqual(put(setCurrentUser(user))); 
 
     });
 });

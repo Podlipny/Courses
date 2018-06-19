@@ -30,6 +30,7 @@ describe("item quantity saga",()=>{
     describe("handle increase item quantity",()=>{
        let gen;
        beforeEach(()=>{
+           // projdeme vsechny yeild z handleIncreaseItemQuantity
            gen = handleIncreaseItemQuantity(item);
            expect(gen.next().value).toEqual(put(setItemQuantityFetchStatus(FETCHING)));
            expect(gen.next().value).toEqual(select(currentUserSelector));
@@ -37,6 +38,7 @@ describe("item quantity saga",()=>{
        });
 
        test("increasing quantity successfully",()=>{
+           // aby dosle k uspesnemu case tak musi byt {status:200}
            expect(gen.next({status:200}).value).toEqual(put(setItemQuantityFetchStatus(FETCHED)));
        })
 

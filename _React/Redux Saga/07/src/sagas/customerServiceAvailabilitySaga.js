@@ -16,15 +16,17 @@ export function* customerServiceAvailabilitySaga() {
             emit(false)
         };
 
+        // toto ziskavame ze socketu
         socket.on(`SUPPORT_AVAILABLE`,enableSupportMessage);
         socket.on(`SUPPORT_NOT_AVAILABLE`,disableSupportMessage);
 
         return ()=>{
-
+        // zde by jsme meli nastavit close liseneru
         }
     });
 
     while (true) {
+        // pokazde kdyz channer neco emitne tak to zachytime
         let supportAvailable = yield take(chan);
         yield put(setCustomerServiceAvailability(supportAvailable));
     }

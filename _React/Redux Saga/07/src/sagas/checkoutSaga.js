@@ -2,7 +2,8 @@ import { take, call, put, select } from 'redux-saga/effects'
 import fetch from 'isomorphic-fetch';
 
 import {
-    TOGGLE_CHECKING_OUT,
+    TOGGLE_CHECKING_OUT, // vime ze user klikl na checkout button
+    // dale nasleduji jednotlive faze overovani
     QUANTITY_VERIFICATION_CHECKOUT_PHASE,
     CREDIT_VALIDATION_CHECKOUT_PHASE,
     ERROR_CHECKOUT_PHASE,
@@ -63,6 +64,7 @@ export function* checkout(){
 
 export function* checkoutSaga() {
     while (true) {
+        // user zrovna porvadi checkout
         const isCheckingOut = yield take(TOGGLE_CHECKING_OUT);
         if (isCheckingOut) {
             yield call(checkout);
