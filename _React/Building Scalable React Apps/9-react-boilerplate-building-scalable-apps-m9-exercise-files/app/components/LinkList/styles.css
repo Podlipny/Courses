@@ -1,0 +1,25 @@
+.linkList { /* stylelint-disable */
+
+}
+
+.button {
+  box-shadow: rgba(0, 0, 0, 0.156863) 0px 3px 10px, rgba(0, 0, 0, 0.227451) 0px 3px 10px;
+  border-radius: 50%;
+  display: inline-block;
+  position: fixed;
+  right: 30px;
+  top: 110px;
+  background-color: #ff4081;
+  padding: 25px;
+  padding-left: 30px;
+  padding-right: 30px;
+
+  &:hover {
+    background-color: #f9578e;
+  }
+}
+
+
+.icon {
+  color: #fff;
+}
