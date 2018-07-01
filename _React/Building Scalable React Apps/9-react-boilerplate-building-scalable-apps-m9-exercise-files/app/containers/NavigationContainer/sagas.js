@@ -25,6 +25,7 @@ function* pushTopic(action) {
 }
 
 function* selectDefaultTopic() {
+  // v saga nemame pristup ke state, proto pouzijeme select a nacteme si NavigationContainer ze storu
   const state = yield select(selectNavigationContainer());
   if (!state.selectedTopic && state.routerLocation === '/') {
     yield put(push(`/topics/${state.topics[0].name}`));
