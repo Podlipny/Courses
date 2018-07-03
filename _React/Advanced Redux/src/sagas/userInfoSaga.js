@@ -30,10 +30,11 @@ function* fetchUserInfo(id){
     }
 }
 
+// channel bereme z action payload SET_CHANNEL_INFO
 function* fetchChannelUsers({channel}){
     const ids = channel.get(`participants`);
     for (let id of ids) {
-        yield fork(fetchUserInfo,id);
+        yield fork(fetchUserInfo,id); // vytvorime separatni/ parallel calls pro dane Id
     }
 }
 

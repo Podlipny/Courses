@@ -6,6 +6,7 @@ function* putActiveChannel({id}){
     const currentUser = yield select(currentUserSelector);
     const userID = currentUser.get(`id`);
     yield call(()=>fetch(`/user/activeChannel/${userID}/${id}`));
+    // updatuje user active channel na serveru, takze pokud se user odhlasi a pote zase prihlasi bude zase na stejnem kanalu
 }
 
 export function* activeChannelSaga() {
