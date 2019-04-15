@@ -10,6 +10,7 @@ module.exports = {
       if (existingUser) {
         throw new Error('User exists already.');
       }
+      // we can provide specific salt or number of rounds for salt
       const hashedPassword = await bcrypt.hash(args.userInput.password, 12);
 
       const user = new User({
@@ -19,7 +20,10 @@ module.exports = {
 
       const result = await user.save();
 
-      return { ...result._doc, password: null, _id: result.id };
+      /**
+       * result.id udela zjednodusene result._doc._id.toString()
+       */
+      return { ...result._doc, password: null, _id: result.id }; 
     } catch (err) {
       throw err;
     }
