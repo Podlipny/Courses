@@ -1,0 +1,62 @@
+{
+  "name": "JAMstack-Course",
+  "private": true,
+  "description": "The frontend of a JAMstack e-commerce platform built for a Udemy course.",
+  "version": "1.0.0",
+  "author": "Zachary Reece <jamstack.course@gmail.com>",
+  "dependencies": {
+    "@apollo/client": "^3.2.9",
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/data-grid": "^4.0.0-alpha.21",
+    "@material-ui/lab": "^4.0.0-alpha.56",
+    "@stripe/react-stripe-js": "^1.2.2",
+    "@stripe/stripe-js": "^1.12.1",
+    "axios": "^0.21.0",
+    "cross-fetch": "^3.0.6",
+    "gatsby": "^2.24.61",
+    "gatsby-plugin-image": "^1.6.0",
+    "gatsby-plugin-manifest": "^2.4.30",
+    "gatsby-plugin-material-ui": "^2.1.10",
+    "gatsby-plugin-offline": "^3.2.28",
+    "gatsby-plugin-react-helmet": "^3.3.11",
+    "gatsby-plugin-robots-txt": "^1.6.2",
+    "gatsby-plugin-sharp": "^2.6.36",
+    "gatsby-plugin-sitemap": "^2.12.0",
+    "gatsby-plugin-web-font-loader": "^1.0.4",
+    "gatsby-source-filesystem": "^2.3.30",
+    "gatsby-source-strapi": "^1.0.1",
+    "gatsby-transformer-sharp": "^2.5.15",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^6.1.0",
+    "react-lottie": "^1.2.3",
+    "react-resize-aware": "^3.1.0",
+    "react-spring": "^9.0.0-rc.3",
+    "react-spring-3d-carousel": "^1.2.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "prettier": "2.1.1"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "0BSD",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zreecespieces/jamstack-course"
+  },
+  "bugs": {
+    "url": "https://github.com/zreecespieces/jamstack-course/issues"
+  }
+}

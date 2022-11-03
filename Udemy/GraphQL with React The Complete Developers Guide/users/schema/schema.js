@@ -34,6 +34,7 @@ const UserType = new GraphQLObjectType({
     company: {
       type: CompanyType,
       resolve(parentValue, args) {
+        // graphQL pretransformuje samo data
         return axios.get(`http://localhost:3000/companies/${parentValue.companyId}`)
           .then(res => res.data);
       }
@@ -45,8 +46,9 @@ const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
   fields: {
     user: {
-      type: UserType,
-      args: { id: { type: GraphQLString } },
+      type: UserType, // definuje jak data vypadaji
+      args: { id: { type: GraphQLString } }, // argumenty v query
+      // ziskava data
       resolve(parentValue, args) {
         return axios.get(`http://localhost:3000/users/${args.id}`)
           .then(resp => resp.data);

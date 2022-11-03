@@ -1,0 +1,5 @@
+White: #FFF
+Black: #2A363B
+Green: #99B898
+Tan: #FECEA8
+Red: #E84A5F

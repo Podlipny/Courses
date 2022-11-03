@@ -1,0 +1,20 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/set-settings",
+      "handler": "User.setSettings",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/change-password",
+      "handler": "User.changePassword",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
