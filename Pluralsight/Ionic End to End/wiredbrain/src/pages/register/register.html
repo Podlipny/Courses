@@ -1,0 +1,34 @@
+<!--
+  Generated template for the RegisterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+      <ion-title>Register an Account</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-item>
+        <ion-label color="danger">Email Address</ion-label>
+        <ion-input type="email" [(ngModel)]="reg.email" name="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="danger">Password</ion-label>
+      <ion-input type="password" [(ngModel)]="reg.passWrd1" name="passWrd1"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label color="danger">Confirm Password</ion-label>
+        <ion-input type="password" [(ngModel)]="reg.passWrd2" name="passWrd2"></ion-input>
+    </ion-item>
+    <p>Register an account using a valid email address</p>
+    <button ion-button full color="danger" (click)="registerAccount()">Register</button>
+</ion-content>

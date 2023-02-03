@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="small-12 medium-6 columns">
+        <h1>Add a Post</h1>
+    </div>
+</div>
+
+<form>
+    <div class="row">
+        <div class="small-12 medium-6 columns">
+            <label>Post Title
+            <input type="text" [(ngModel)]="postTitle" name="postTitle" required #psTitle="ngModel">
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 medium-6 columns"> 
+            <label>Post Content
+            <textarea rows="15" id="content" [(ngModel)]="content" name="content" required #psContent="ngModel">
+            </textarea>
+            </label>
+        </div>
+        <div class="small-12 medium-6 columns"> 
+            <input type="file" (change)="fileLoad($event)"><br>
+            <img *ngIf = "imageSRC" [src] = "imageSRC" alt="Image preview...">
+        </div>
+    </div>
+    <div class="row align-center">
+        <div class="small-12 columns">
+            <div class="expanded button-group">
+            <button class="success button " type="button" [disabled]="!psTitle.valid || !psContent.valid" 
+                    (click)="createPost()">Create Post</button>
+                <button class="cancel button" type="button" (click)="cancel()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+</form>

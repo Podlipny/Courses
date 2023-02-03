@@ -1,2 +1,0 @@
-### Angular First Look Example 
-

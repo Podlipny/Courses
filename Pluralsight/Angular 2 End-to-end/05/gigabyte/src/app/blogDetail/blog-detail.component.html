@@ -1,0 +1,23 @@
+<div class="row image-spacing">
+    <img [src]="singlePost?.img">
+</div>
+
+<div class="row">
+    <div class="column text-left">
+        <a class="back-link" [routerLink]="['']">    
+            <h4>Go Back</h4>
+        </a>
+    </div>
+</div>
+
+<div class="row post-title">
+    <div class="column text-center">
+        <h2>{{singlePost?.title}}</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="column text-justified">
+        <p>{{singlePost?.content}}</p>
+    </div>
+</div>

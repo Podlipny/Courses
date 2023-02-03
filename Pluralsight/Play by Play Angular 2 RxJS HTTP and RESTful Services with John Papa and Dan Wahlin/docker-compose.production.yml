@@ -1,0 +1,32 @@
+# Run docker-compose -f docker-compose.production.yml build
+# Run docker-compose -f docker-compose.production.yml up
+# Live long and prosper
+
+version: '2'
+
+services:
+
+  node:
+    container_name: nodeapp
+    image: nodeapp
+    build:
+      context: .
+      dockerfile: .docker/node.production.dockerfile
+    environment:
+      - NODE_ENV=production
+    ports:
+      - "3000:3000"
+    networks:
+      - nodeapp-network
+      
+  #No authentication is provided here - just a demo! Read the Dockerfile
+  #for more information about adding authentication.
+  mongodb:
+    container_name: mongodb
+    image: mongo
+    networks:
+      - nodeapp-network
+
+networks:
+  nodeapp-network:
+    driver: bridge

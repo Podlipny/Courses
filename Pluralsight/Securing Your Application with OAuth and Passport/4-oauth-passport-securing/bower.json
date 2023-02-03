@@ -1,0 +1,24 @@
+{
+  "name": "socialAggregator",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Justin Drennen <justin@drennentech.com>"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.7",
+    "font-awesome": "fontawesome#~4.6.3"
+  }
+}

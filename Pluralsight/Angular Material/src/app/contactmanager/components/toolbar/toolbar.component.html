@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">
+
+  <button mat-button class="sidenav-toggle" (click)="toggleSidenav.emit()">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <span>Contact Manager</span>
+
+  <span class="example-spacer"></span>
+
+  <button mat-button [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <!-- [matMenuTriggerFor]="menu" prolinkujeme click na button s otevrenim menu -->
+  <mat-menu #menu="matMenu">
+    <!-- pokud klineme na button, tak se spusti event, ktery predame toolbaru v sidenav componente -->
+    <button mat-menu-item (click)="openAddContactDialog()">New Contact</button>
+    <button mat-menu-item (click)="toggleTheme.emit()">Toggle theme</button>
+    <button mat-menu-item (click)="toggleDir.emit()">Toggle dir</button>
+  </mat-menu>
+
+</mat-toolbar>

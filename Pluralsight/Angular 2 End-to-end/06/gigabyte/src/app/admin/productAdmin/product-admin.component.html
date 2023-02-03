@@ -1,0 +1,110 @@
+<div class="top-bar">
+    <div class="top-bar-title">GGC Product Admin area</div>
+
+    <div class="top-bar-left">
+        <ul class="menu">
+            <li class="admin-menu"><a (click)="chooseMode('add')">Add Product</a></li>
+            <li *ngIf = "menuChoice" class="admin-menu"><a (click)="chooseMode('')">Manage Products</a></li>
+            <li class="admin-menu"><a [routerLink]="['/admin']">Back to Admin</a></li>
+        </ul>
+    </div>
+    <div *ngIf = "theUser" class="top-bar-right">
+        <ul class="menu">
+            <li class="admin-menu"><a (click)="logout()">Logout</a></li>
+            <li class="admin-menu"><a>{{theUser}} Logged in</a></li>
+        </ul>
+    </div>
+
+</div>
+
+<div [ngSwitch]="menuChoice">
+    <div *ngSwitchCase="'add'"><product-menu></product-menu></div>
+    <div *ngSwitchDefault>
+
+        <div *ngIf = "formDisplay" class="row">
+            <div class="row" *ngFor="let prod of theProducts">
+
+                <div class="row spacer">
+	                <div class="media-object">
+		                <div class="media-object-section">
+        		            <div class="align-self-middle">
+                		        <img class="mini-img" [src]= "prod.img">
+                 	        </div>
+              	        </div>
+                        <div class="media-object-section main-section">
+                            <h4>{{prod.name}}</h4>
+                            <p>{{prod.desc | truncate:140}}</p>
+                            <p>$ {{prod.price}}</p>
+                            <div class="button-group align-center">
+                                <a class="button" (click)="editProduct(prod)" >Edit</a>
+                                <a class="button alert" (click)="deleteProduct(prod)">Delete</a>
+                            </div>
+                        </div>
+
+   	                </div>
+                </div>   
+
+            </div>
+        </div>
+
+        <div *ngIf = "!formDisplay" class="row">
+            
+            <form >
+                <div class="row">
+        	        <div class="medium-12 columns"><h3>Edit Product</h3></div>
+                </div>
+
+                <div class="row">
+                    <div class="small-12 medium-6 columns">
+                        <label>Product Name
+                            <input type="text" [(ngModel)]="singleProduct.name" 
+                                name="editName" required #prName="ngModel">
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-12 medium-6 columns">
+                        <label>Price
+                            <input type="text" [(ngModel)]="singleProduct.price" 
+                                name="editPrice" required #prPrice="ngModel">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="small-12 medium-6 columns">
+                        <label>Post Description
+                            <textarea rows="15" id="desc" [(ngModel)]="singleProduct.description" 
+                                name="editDesc" required #psDesc="ngModel"></textarea>
+                        </label>
+                    </div>
+                    <div class="small-12 medium-6 columns">
+                        <img [src] = "singleProduct.img" alt="Image preview...">
+                    </div>
+                </div>
+
+                  <div class="row align-center">
+                    <div class="small-12 columns">
+                        <div class="expanded button-group">
+    <button class="success button " type="button" [disabled]="!prName.valid || !prPrice.valid ||!prDesc.valid" 
+        (click)="updateProduct(singleProduct)">Update Product</button>
+    <button class="cancel button" type="button" (click)="cancelEdit()">Cancel Edit</button>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+
+
+
+
+
+
+
+
+
+    </div>
+
+</div>

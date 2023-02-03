@@ -1,0 +1,49 @@
+{
+    "name": "angular-node-restfulservice",
+    "author": "Dan Wahlin",
+    "version": "1.0.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/danwahlin/Angular-RestfulService"
+    },
+    "scripts": {
+        "tsc": "tsc",
+        "tsc:w": "tsc -w",
+        "server": "node server.js",
+        "start": "tsc && concurrently \"tsc -w\" \"nodemon server.js\""
+    },
+    "license": "ISC",
+    "dependencies": {
+        "@angular/common": "4.3.6",
+        "@angular/compiler": "4.3.6",
+        "@angular/core": "4.3.6",
+        "@angular/forms": "4.3.6",
+        "@angular/http": "4.3.6",
+        "@angular/platform-browser": "4.3.6",
+        "@angular/platform-browser-dynamic": "4.3.6",
+        "@angular/router": "4.3.6",
+        "@angular/upgrade": "4.3.6",
+        "@angular/compiler-cli": "4.3.6",
+        "@angular/platform-server": "4.3.6",
+        "@angular/tsc-wrapped": "4.3.6",
+        "@angular/animations": "4.3.6",
+        "systemjs": "0.20.18",
+        "core-js": "2.5.0",
+        "rxjs": "5.4.3",
+        "zone.js": "0.8.17",
+        "express": "^4.15.4",
+        "pug": "^2.0.0-rc.3",
+        "mongoose": "^4.11.5",
+        "cookie-parser": "^1.4.3",
+        "body-parser": "^1.17.2",
+        "express-session": "^1.15.5",
+        "errorhandler": "^1.5.0",
+        "csurf": "^1.9.0"
+    },
+    "devDependencies": {
+        "concurrently": "3.5.0",
+        "lite-server": "2.3.0",
+        "typescript": "2.4.2",
+        "@types/node": "8.0.25"
+    }
+}

@@ -1,0 +1,37 @@
+<!--
+  Generated template for the MenuPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="secondary" text-right>
+    <ion-title>Menu<img src="assets/img/wired-brain-coffee-logo-small.png"></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-card *ngFor ="let cup of myCoffee" color="secondary">
+    <img src={{cup.img}}/>
+     <ion-card-content>
+      <ion-row (click)="chooseCafe(cup.id)" align-items-start>
+        
+        <ion-col>
+          <ion-card-title>
+            {{cup.name}}
+          </ion-card-title>
+        </ion-col>
+        <ion-col>sm:{{cup.small | currency:'USD':true}}</ion-col>  
+        <ion-col>md:{{cup.medium | currency:'USD':true}}</ion-col>
+        <ion-col>lg:{{cup.large | currency:'USD':true}}</ion-col>
+      </ion-row>
+            
+    </ion-card-content>
+            
+  </ion-card>
+
+</ion-content>

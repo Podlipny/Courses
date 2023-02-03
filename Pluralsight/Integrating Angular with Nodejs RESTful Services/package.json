@@ -1,0 +1,61 @@
+{
+    "name": "angular-nodejs-mongodb-customersservice",
+    "version": "1.0.0",
+    "repository": {
+        "url": "https://github.com/DanWahlin/Angular-NodeJS-MongoDB-CustomersService"
+    },
+    "license": "MIT",
+    "scripts": {
+        "tsc": "tsc",
+        "tsc:w": "tsc -w",
+        "server": "node server.js",
+        "start": "concurrently \"npm run tsc:w\" \"nodemon server.js\""
+    },
+    "dependencies": {
+        "@angular/common": "4.4.4",
+        "@angular/compiler": "4.4.4",
+        "@angular/core": "4.4.4",
+        "@angular/forms": "4.4.4",
+        "@angular/http": "4.4.4",
+        "@angular/platform-browser": "4.4.4",
+        "@angular/platform-browser-dynamic": "4.4.4",
+        "@angular/router": "4.4.4",
+        "@angular/upgrade": "4.4.4",
+        "@angular/compiler-cli": "4.4.4",
+        "@angular/platform-server": "4.4.4",
+        "@angular/tsc-wrapped": "4.4.4",
+        "@angular/animations": "4.4.4",
+        "systemjs": "0.20.19",
+        "core-js": "2.5.1",
+        "rxjs": "5.4.3",
+        "zone.js": "0.8.18",
+        "cookie-parser": "^1.4.3",
+        "body-parser": "^1.18.2",
+        "csurf": "^1.9.0",
+        "errorhandler": "^1.5.0",
+        "express": "^4.16.2",
+        "express-handlebars": "^3.0.0",
+        "handlebars": "^4.0.10",
+        "handlebars-helpers": "^0.9.8",
+        "handlebars-layouts": "^3.1.4",
+        "express-session": "^1.15.6",
+        "hbs": "~4.0.1",
+        "mongoose": "^4.12.1",
+        "morgan": "~1.9.0",
+        "serve-favicon": "~2.4.5"
+    },
+    "devDependencies": {
+        "concurrently": "3.5.0",
+        "lite-server": "2.3.0",
+        "typescript": "2.5.3",
+        "del": "^3.0.0",
+        "gulp": "^3.9.1",
+        "gulp-concat": "^2.6.1",
+        "gulp-csso": "^3.0.0",
+        "gulp-plumber": "^1.1.0",
+        "gulp-sass": "^3.1.0",
+        "gulp-uglify": "^3.0.0",
+        "run-sequence": "^2.2.0",
+        "@types/node": "8.0.34"
+    }
+}

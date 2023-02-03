@@ -1,0 +1,31 @@
+<div *screenLarge class="group">
+  <div class="index">
+    <span>{{ index }}</span>
+  </div>
+  <div>
+    <img class="country-image" [src]="'/assets/' + country.name + '.jpg'" [alt]="country.name">
+  </div>
+  <div class="country-name">
+    <span>{{ country.name }}</span>
+  </div>
+  <div class="epi-index">
+    <span>{{ country.epiIndex }}</span>
+  </div>
+</div>
+<div *screenBelowLarge class="group-small">
+  <div class="title-group-small">
+    <div class="index-small">
+      <span>{{ index }}</span>
+    </div>
+    <div class="country-name-small">
+      <span>{{ country.name }}</span>
+    </div>
+  </div>
+  <div>
+    <img class="country-image-small" [src]="'/assets/' + country.name + '.jpg'" [alt]="country.name">
+  </div>
+  
+  <div class="epi-index-small">
+    <span>{{ country.epiIndex }}</span>
+  </div>
+</div>

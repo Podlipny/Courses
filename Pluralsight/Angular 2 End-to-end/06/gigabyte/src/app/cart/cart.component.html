@@ -1,0 +1,27 @@
+<navi-bar></navi-bar>
+
+<div class="row align-center">
+    <h1>Shopping Cart</h1>
+</div>
+
+<div *ngFor="let singleitem of myCart">
+    <div class="row align-bottom cart">
+        <div class="medium-6 columns">{{singleitem.name}}</div>
+        <div class="medium-3 columns">${{singleitem.price}}</div>
+        <div class="medium-3 columns">
+            <button type="button" class="alert button"(click)="removeCart(singleitem.id)">
+                Remove Item
+            </button>
+        </div>
+	</div>
+</div>
+
+<div class="row align-bottom space">
+    <div class="medium-1 medium-offset-6 columns cart">Total</div>
+    <div class="medium-5 cart">{{cartTotal | currency:'USD':true}}</div>
+</div>
+
+<div class="expanded button-group space">
+    <a class="success button" (click)="purchase()">Checkout</a>
+    <a class="alert button" (click)="cancel()">Cancel</a>
+</div>

@@ -1,0 +1,62 @@
+<!--
+  Generated template for the AccountPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-toolbar color="secondary">
+      <img src="assets/img/wired-brain-coffee-logo.png" class="logo">
+  </ion-toolbar>
+  <ion-navbar color="secondary">
+      <ion-title>Account Information</ion-title>
+  </ion-navbar>
+
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-item>
+      
+      <ion-avatar item-start>
+        <ion-icon name="contacts"></ion-icon>
+      </ion-avatar>
+      <h1>{{accountUser}}</h1>
+    
+    </ion-item>
+
+    <ion-list>
+      
+      <ion-item>
+        <ion-icon name="calendar" item-start></ion-icon>
+          Registered: {{userInfo.creation}}
+      </ion-item>
+
+      <ion-item>
+          <ion-icon name="cash" item-start></ion-icon>
+            Logged In: {{userInfo.logins}} times
+      </ion-item>
+
+      <ion-item>
+          <ion-icon name="cafe" item-start></ion-icon>
+            Rewards earned: <ion-badge color="secondary"> {{userInfo.rewardCount}}</ion-badge>
+      </ion-item>
+    
+    </ion-list>
+      
+    <ion-list>
+      <ion-list-header>
+        Rewards:
+      </ion-list-header>
+      
+      <ion-item *ngFor ="let reward of rewardInfo" class="myRewards">
+        {{reward.amount | currency:'USD':true}} off your order
+      </ion-item>
+    
+    </ion-list>
+      
+
+</ion-content>

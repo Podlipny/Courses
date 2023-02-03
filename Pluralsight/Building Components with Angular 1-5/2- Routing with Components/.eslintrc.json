@@ -1,0 +1,29 @@
+{
+    "env": {
+        "browser": true
+    },
+    "extends": "eslint:recommended",
+    "globals": {
+        "angular": false,
+        "describe": false,
+        "beforeEach": false,
+        "it": false,
+        "expect": false,
+        "module": false,
+        "inject": false            
+    },
+    "rules": {        
+        "linebreak-style": [
+            "off",
+            "windows"
+        ],
+        "quotes": [
+            "error",
+            "double"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ]
+    }
+}

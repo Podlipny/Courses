@@ -1,0 +1,27 @@
+<navi-bar></navi-bar>
+
+<div class="row expanded">
+  <img  class="hero" src="../shared/images/smartphone.jpg">
+</div>
+
+<div class="row align-center">
+  <h1>Shop</h1>
+</div>
+
+<div  class="row spacing">
+
+  <div *ngFor="let singleprod of products" class="medium-4 columns">
+
+    <div class="card text-center card-spacing">
+      <img class="display-image"  [src]="singleprod.img">
+      <div class="card-section">
+        <h4 class="list-title" (click)="chooseProduct(singleprod)">{{singleprod.name}}</h4>
+        <p>$ {{singleprod.price}}</p>
+        <p>{{singleprod.desc | truncate:140}}</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+

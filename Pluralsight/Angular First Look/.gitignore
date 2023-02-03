@@ -1,0 +1,21 @@
+**/*.map
+_examples/storyline-tracker/app/**/*.js
+_examples/**/app/**/*.js
+_examples/**/api/**/*.js
+_examples/**/in-memory-backend/**/*.js
+
+node_modules
+jspm_packages
+bower_components
+typings
+
+plnkr.html
+#plnkr.demo.html
+
+npm-debug.log
+
+#the pluralsight download folder
+materials
+materials.zip
+
+.DS_Store
