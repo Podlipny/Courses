@@ -1,0 +1,110 @@
+<div class="py-5 py-lg-10">
+    <!-- First Highlight -->
+    <div class="container py-5 py-lg-8">
+        <div class="row g-5 g-lg-10 d-flex align-items-center">
+            <div class="col-12 col-md-6 col-xl-5 offset-xl-1 position-relative">
+                <picture class="position-relative z-index-20">
+                    <img class="img-fluid rounded-5" src="{{webRoot}}/assets/images/feature-1.jpeg"
+                        alt="{{ config.defaultImgAlt }}">
+                </picture>
+                <div class="position-absolute bottom-5 end-0 z-index-30 d-none d-lg-block">
+                    <div class="p-3 bg-white shadow-lg rounded-3 f-w-60 mb-3 d-flex align-items-center me-0 ms-auto">
+                        <div class="position-relative me-4">
+                            <picture class="position-relative z-index-0">
+                                <img class="f-w-12 rounded-circle" src="{{webRoot}}/assets/images/profile-small-2.jpeg" alt="{{config.defaultImgAlt}}">
+                            </picture>
+                            <span
+                            class="position-absolute z-index-20 d-block f-w-3 f-h-3 border border-3 border-white bg-success rounded-circle bottom-0 end-8"></span>
+                        </div>
+                        <div class="lh-sm">
+                            <small class="align-self-center fs-8">I like it. 👍 Can we try a different shade of orange for the nav? </small>
+                            <span class="fs-9 text-muted fw-medium mt-1 d-block">12 mins ago</span>
+                        </div>
+                    </div>
+
+                    <div class="p-3 bg-white shadow-lg rounded-3 f-w-56 mb-3 d-flex align-items-center me-0 ms-auto">
+                        <div class="position-relative me-4">
+                            <picture class="position-relative z-index-0">
+                                <img class="f-w-12 rounded-circle" src="{{webRoot}}/assets/images/profile-small-3.jpeg" alt="{{config.defaultImgAlt}}">
+                            </picture>
+                            <span
+                            class="position-absolute z-index-20 d-block f-w-3 f-h-3 border border-3 border-white bg-danger rounded-circle bottom-0 end-8"></span>
+                        </div>
+                        <div class="lh-sm">
+                            <small class="align-self-center fs-8 lh-sm">Orange updated in header and footer.</small>
+                            <span class="fs-9 text-muted fw-medium mt-1 d-block">5 mins ago</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Hightlight One SVG Shape-->
+                <div class="d-none d-xl-block f-w-60 position-absolute top-n13 start-n3 opacity-75">
+                    <span class="d-block">
+                        {{> svg/svg-shape-nine }}
+                    </span>
+                </div>
+                <!-- /Hightlight One SVG Shape-->
+            </div>
+            <div class="col-12 col-md-6 col-xl-5 offset-xl-1 position-relative">
+                <div class="position-relative z-index-20">
+                    <!-- Highlight One Text Section-->
+                    <p class="mb-0 small fw-bolder tracking-wider text-uppercase text-primary">Build together</p>
+                    <h4 class="fs-1 fw-bold mb-4 mt-3">You need collaboration. We've got you covered.</h4>
+                    <p class="text-muted">Use our builder to collaborate with your team members during all stages of your landing page build.</p>
+                    <a href="#" class="btn btn-link px-0 me-3 fw-medium text-decoration-none mt-4">Let's get started &rarr;</a>
+                    <!-- /Highlight One Text Section-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /First Highlight -->
+
+    <!-- Second Highlight -->
+    <div class="container py-5 py-lg-8">
+        <div class="row g-5 g-lg-10 d-flex align-items-center flex-row-reverse">
+            <div class="col-12 col-md-6 col-xl-5 offset-xl-1 position-relative">
+                <picture class="position-relative z-index-20">
+                    <img class="img-fluid rounded-5" src="{{webRoot}}/assets/images/feature-2.jpeg"
+                        alt="{{ config.defaultImgAlt }}">
+                </picture>
+                <!-- Hightlight Two SVG Shape-->
+                <div class="d-none d-xl-block f-w-60 position-absolute top-n13 end-n3 opacity-75">
+                    <span class="d-block">
+                        {{>svg/svg-shape-nine
+                            }}
+                    </span>
+                </div>
+                <!-- /Hightlight Two SVG Shape-->
+
+                <div class="position-absolute bottom-3 start-5 z-index-30 d-none d-lg-block">
+                    <div class="p-3 bg-white shadow-lg rounded-3 f-w-16 mb-3">
+                        <picture class="position-relative z-index-0">
+                            <img class="img-fluid" src="{{webRoot}}/assets/images/logos/logo-12.svg" alt="{{config.defaultImgAlt}}">
+                        </picture>
+                    </div>
+                    <div class="p-3 bg-white shadow-lg rounded-3 f-w-16 mb-3">
+                        <picture class="position-relative z-index-0">
+                            <img class="img-fluid" src="{{webRoot}}/assets/images/logos/logo-10.svg" alt="{{config.defaultImgAlt}}">
+                        </picture>
+                    </div>
+                    <div class="p-3 bg-white shadow-lg rounded-3 f-w-16 mb-3">
+                        <picture class="position-relative z-index-0">
+                            <img class="img-fluid" src="{{webRoot}}/assets/images/logos/logo-11.svg" alt="{{config.defaultImgAlt}}">
+                        </picture>
+                    </div>
+                    <div class="px-3 py-2 bg-primary shadow-lg rounded-3 f-w-16 mb-3">
+                        <span class="fs-3">👍</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-xl-5 offset-xl-1 position-relative">
+                <!-- Highlight Two Text Section-->
+                <p class="mb-0 small fw-bolder tracking-wider text-uppercase text-orange">Build faster</p>
+                <h4 class="fs-1 fw-bold mb-4 mt-3">One-click deployment to your favourite host.</h4>
+                <p class="text-muted">Use our templates to build and launch your landing page faster than your dev team.</p>
+                <a href="#" class="btn btn-link px-0 me-3 fw-medium text-orange text-decoration-none mt-4">Start your free trial &rarr;</a>
+                <!-- /Highlight Two Text Section-->
+            </div>
+        </div>
+    </div>
+    <!-- /Second Highlight -->
+</div>

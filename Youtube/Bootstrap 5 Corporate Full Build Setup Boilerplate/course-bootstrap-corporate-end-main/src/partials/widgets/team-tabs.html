@@ -1,0 +1,61 @@
+<ul class="nav nav-tabs d-flex justify-content-center" id="myTab" role="tablist">
+
+    <!-- Europe Nav Link  -->
+    <li class="nav-item" role="presentation">
+      <a href="" class="nav-link active small fw-medium tracking-wider text-uppercase" id="europe-tab" data-bs-toggle="tab" data-bs-target="#europe" role="button" role="tab" aria-controls="europe" aria-selected="true">Europe</a>
+    </li>
+    <!-- Europe Nav Link  -->
+
+    <!-- America Nav Link -->
+    <li class="nav-item" role="presentation">
+      <a href="" class="nav-link small fw-medium tracking-wider text-uppercase" id="america-tab" data-bs-toggle="tab" data-bs-target="#america" type="a" role="tab" aria-controls="america" aria-selected="false">America</a>
+    </li>
+    <!-- /America Nav Link -->
+
+    <!-- Asia Nav Link -->
+    <li class="nav-item" role="presentation">
+      <a href="" class="nav-link small fw-medium tracking-wider text-uppercase" id="asia-tab" data-bs-toggle="tab" data-bs-target="#asia" role="button" role="tab" aria-controls="asia" aria-selected="false">Asia</a>
+    </li>
+    <!-- /Asia Nav Link -->
+
+</ul>
+
+<div class="tab-content mt-5" id="myTabContent">
+
+    <!-- Europe Tab Content -->
+    <div class="tab-pane fade show active" id="europe" role="tabpanel" aria-labelledby="europe-tab">
+        {{#if (config team)}}
+        <div class="row g-6">
+        {{#each team.entries}}
+            {{> widgets/team-single this}}
+        {{/each}}
+        </div>
+        {{/if}}
+    </div>
+    <!-- Europe Tab Content -->
+
+    <!-- America Tab Content -->
+    <div class="tab-pane fade" id="america" role="tabpanel" aria-labelledby="america-tab">
+        {{#if (config team)}}
+        <div class="row g-6">
+        {{#each team.entries}}
+            {{> widgets/team-single this}}
+        {{/each}}
+        </div>
+        {{/if}}
+    </div>
+    <!-- /America Tab Content -->
+
+    <!-- Asia Tab Content -->
+    <div class="tab-pane fade" id="asia" role="tabpanel" aria-labelledby="asia-tab">
+        {{#if (config team)}}
+        <div class="row g-6">
+        {{#each team.entries}}
+            {{> widgets/team-single this}}
+        {{/each}}
+        </div>
+        {{/if}}
+    </div>
+    <!-- Asia Tab Content -->
+    
+</div>

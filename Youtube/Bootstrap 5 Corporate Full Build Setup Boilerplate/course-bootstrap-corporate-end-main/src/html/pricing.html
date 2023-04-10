@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Head -->
+{{> (config config.partials.head) title=config.defaultPageTitle }}
+
+<body class="{{ config.classes.body }}">
+
+    <!-- Navbar -->
+    {{> navbar/navbar
+        configClassList=config.classes.navbar
+        classList="" }}
+    <!-- / Navbar-->
+
+    <!-- Main Section-->
+    <main class="{{ config.classes.content }}">
+
+        <!-- Page Title-->
+        <header class="bg-primary py-10 text-white overflow-hidden position-relative z-index-10">
+            <div class="container">
+                <div class="f-w-72 position-absolute top-n25 start-n13 opacity-10 d-none d-lg-block">
+                    <span class="d-block">
+                        {{>svg/svg-shape-eight
+                            colorOne="text-success"
+                            colorTwo="text-success"
+                        }}
+                    </span>
+                </div>
+                <div class="f-w-72 position-absolute bottom-10 end-n3 opacity-10 d-none d-lg-block">
+                    <span class="d-block">
+                        {{>svg/svg-shape-three
+                            colorOne="text-success"
+                            colorTwo="text-success"
+                        }}
+                    </span>
+                </div>
+                <div class="text-center col-12 col-sm-9 col-lg-7 col-xl-6 mx-auto pb-8 position-relative z-index-20">
+                    <h1 class="display-3 fw-bold mb-3">Simple pricing</h1>
+                    <p class="opacity-75 lead">Try Sigma for free for 30 days with full features, no credit card required, no commitment required. Then upgrade your account after that when you're ready.</p>
+                    <a href="#" class="btn btn-white mt-4 w-100 w-md-auto">Start your trial</a>
+                </div>
+            </div>
+        </header>
+        <!-- / Page Title-->
+
+        <!-- Page Content Goes Here -->
+        <div class="container position-relative z-index-20">
+
+            <!-- Pricing Table-->
+            {{> widgets/pricing }}
+            <!-- / Pricing Table-->
+
+            <!-- Enterprise Banner-->
+            <div class="my-10 bg-primary p-4 p-md-6 rounded text-white d-flex align-items-center position-relative">
+                <div class="row">
+                    <div class="col-12 col-md-5 position-relative z-index-20">
+                        <h4 class="fs-3 fw-bold mb-3">Need Enterprise?</h4>
+                        <p class="opacity-75">Our Enterprise package is custom-built per client - ideal for large
+                            businesses.</p>
+                        <a href="#" class="btn btn-white" role="button">Discuss your requirements</a>
+                    </div>
+                    <div class="col-12 col-md-6 offset-md-1 mt-5 mt-lg-0 position-relative z-index-20">
+                        <ul class="list-unstyled">
+                            <li class="me-4 mb-2 d-flex align-items-center">
+                                <i class="ri-checkbox-circle-fill opacity-75 ri-lg me-1"></i> 
+                                Custom package per client
+                            </li>
+                            <li class="me-4 mb-2 d-flex align-items-center">
+                                <i class="ri-checkbox-circle-fill opacity-75 ri-lg me-1"></i> 
+                                Unlimited resources
+                            </li>
+                            <li class="me-4 mb-2 d-flex align-items-center">
+                                <i class="ri-checkbox-circle-fill opacity-75 ri-lg me-1"></i> 
+                                Add additional features
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- SVG Shape-->
+                <div class="position-absolute top-0 end-0 start-0 bottom-0 z-index-0 d-none d-lg-block overflow-hidden">
+                    <div class="d-block f-w-80 position-absolute top-10 end-n25 opacity-25">
+                        <span class="d-block">
+                            {{>svg/svg-shape-one
+                                colorOne="text-white"
+                                colorTwo="text-white"
+                            }}
+                        </span>
+                    </div>
+
+                </div>
+                <!-- / SVG Shape-->                
+            </div>
+            <!-- / Enterprise Banner-->
+            
+            <!-- Company Logos-->
+            {{#if (config logos-two)}}
+            <div class="my-10 py-4">
+                <div class="container">
+                    <p class="mb-6 text-center small fw-bolder tracking-wider text-muted text-uppercase">Already trusted by thousands of brands</p>
+                    <div class="row gx-8 gy-5 justify-content-center align-items-center">
+                        {{#each logos-two.entries}}
+                        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                            <!-- Logo-->
+                            <picture>
+                                <img class="img-fluid" src="{{ img }}" alt="{{config.defaultImgAlt}}">
+                            </picture>
+                            <!-- / Logo-->
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+            <!-- / Company Logos-->
+            {{/if}}
+        </div>
+
+
+        <!-- FAQs-->
+        <div class="py-10 bg-light">
+            <div class="container">
+                <h3 class="text-center fs-1 mb-3 fw-bold">Frequently asked questions</h3>
+                <div class="mx-auto mt-5 col-12 col-md-8 col-lg-6 col-xl-5">
+                    {{> widgets/faq }}
+                </div>
+            </div>
+        </div>
+        <!-- / FAQs-->
+
+        <!-- /Page Content -->
+    </main>
+    <!-- / Main Section-->
+
+    <!-- Footer -->
+    {{> (config config.partials.footer)
+            configClassList=config.classes.footer
+            classList=""
+        }}
+    <!-- / Footer-->
+
+    <!-- Theme JS -->
+    {{> footer/scripts }}
+
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+{{#if (config team)}}
+<div class="row g-6">
+{{#each team.entries}}
+    {{> widgets/team-single this}}
+{{/each}}
+</div>
+{{/if}}

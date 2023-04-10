@@ -1,0 +1,73 @@
+.dropdown-menu {
+    box-shadow: $box-shadow-lg;
+}
+
+.dropdown-toggle {
+    position: relative;
+
+    &:after {
+        border: 0;
+        font-family: var(--theme-font-icon);
+        font-style: var(--theme-font-icon-style);
+        content: "\EA50";
+        margin: 0 !important;
+        font-size: 1.15rem;
+        display: block;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+    }
+
+    &.show {
+        &:after {
+            content: "\EA56";
+        }
+    }   
+}
+
+.dropdown-toggle {
+    padding-right: 1.25rem !important;
+}
+
+.dropdown-heading {
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-size: 80%;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+
+@include media-breakpoint-down(lg) {
+    .dropdown-menu {
+        box-shadow: none;
+    }
+    .nav-link {
+        padding: .5rem 0;
+        margin: 0;
+    }
+
+    .nav-item .container {
+        padding-left: .5rem;
+        padding-right: .5rem;
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .dropdown-megamenu {
+        width: 100%;
+        left: 0;
+        right: 0;
+        border-radius: 0 !important;
+        padding: 0 !important;
+        background: $white;
+        margin: 0 !important;
+        border: 0 !important;
+        border-top: 1px solid $border-color !important;
+        box-shadow: 0 1.5rem 31px -17px rgb(22 28 45 / 8%);
+    }
+    .dropdown-megamenu.show {
+        animation: fadeInUp .3s;
+    }
+}

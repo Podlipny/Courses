@@ -1,0 +1,67 @@
+<div class="pt-10 bg-light">
+    <div class="container">
+        <div class="col-12 mx-auto col-sm-10 col-md-8 col-lg-6 text-center">
+            <h4 class="fs-1 fw-bold mb-4">Who we are</h4>
+            <!-- Stats-->
+            {{> widgets/stats }}
+            <!-- / Stats-->
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="#">Sed lobortis nibh augue</a>,
+                ut blandit <a href="#">lorem hendrerit non</a>. Donec finibus at lacus in efficitur nunc
+                fringilla, dui quis
+                vestibulum varius.</p>
+            <a href="#" class="btn btn-success mt-4">Find out more</a>            
+        </div>
+    </div>
+    <div class="position-relative mt-10">
+        <picture class="d-table mx-auto mt-5 col-12 col-sm-10 position-relative z-index-20">
+            <img class="img-fluid d-table mx-auto" src="{{webRoot}}/assets/images/team-photo.png"
+                alt="{{ config.defaultImgAlt }}">
+        </picture>
+        <!-- SVG shapes-->
+        <div class="position-absolute top-0 end-0 start-0 bottom-0 z-index-0 d-none d-lg-block">
+            <div class="d-block f-w-6 position-absolute top-n13 end-50">
+                <span class="d-block">
+                    {{>svg/svg-shape-one
+                    }}
+                </span>
+            </div>
+            <div class="d-block f-w-6  position-absolute bottom-15 end-3 rotate-n45 origin-center">
+                <span class="d-block">
+                    {{>svg/svg-shape-two
+                    }}
+                </span>
+            </div>
+            <div class="d-block f-w-4  position-absolute bottom-50 start-3">
+                <span class="d-block">
+                    {{>svg/svg-shape-seven
+                    }}
+                </span>
+            </div>
+            <div class="d-block f-w-6 position-absolute top-n3 start-30">
+                <span class="d-block">
+                    {{>svg/svg-shape-four
+                    }}
+                </span>
+            </div>
+            <div class="d-block f-w-6 position-absolute top-20 end-5">
+                <span class="d-block">
+                    {{>svg/svg-shape-three
+                    }}
+                </span>
+            </div>
+            <div class="d-block f-w-6 position-absolute top-n13 end-25">
+                <span class="d-block">
+                    {{>svg/svg-shape-five
+                    }}
+                </span>
+            </div>
+            <div class="d-block f-w-4 position-absolute top-n13 start-20">
+                <span class="d-block">
+                    {{>svg/svg-shape-eight
+                    }}
+                </span>
+            </div>
+        </div>
+        <!-- / SVG shapes-->
+    </div>
+</div>

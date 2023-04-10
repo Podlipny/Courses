@@ -1,0 +1,43 @@
+<section class="marquee marquee-hover-pause">
+    <div class="marquee-body">
+        <div class="marquee-section animation-marquee-90">
+            {{# if (config logos)}}
+                {{#each logos.entries}}
+                <div class="mx-5 f-w-24">
+                    <a 
+                    class="d-block" 
+                    href="#" 
+                    data-bs-toggle="tooltip" 
+                    data-bs-placement="top" 
+                    title="{{name}}">
+                        <picture>
+                            <img class="img-fluid d-table mx-auto" src="{{ img }}" alt="{{ config.defaultImgAlt }}">
+                        </picture>
+                    </a>
+                </div>
+                {{/each}}
+            {{/if}}
+        </div>
+        <div class="marquee-section animation-marquee-90">
+            {{# if (config logos)}}
+                {{#each logos.entries}}
+                <div class="mx-5 f-w-24">
+                    <a 
+                    class="d-block" 
+                    href="#" 
+                    data-bs-toggle="tooltip" 
+                    data-bs-placement="top" 
+                    title="{{name}}">
+                        <picture>
+                            <img class="img-fluid d-table mx-auto" src="{{ img }}" alt="{{ config.defaultImgAlt }}">
+                        </picture>
+                    </a>
+                </div>
+                {{/each}}
+            {{/if}}
+        </div>        
+    </div>
+</section>
+
+
+

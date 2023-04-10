@@ -1,0 +1,21 @@
+.card-vcard {
+    border: 0;
+    box-shadow: $box-shadow-lg;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+}
+
+.vcard-title {
+    font-weight: 600;
+}
+
+.vcard-subtitle {
+    font-size: 80%;
+    font-weight: 600;
+}

@@ -1,0 +1,34 @@
+{
+    "entries": [
+        {
+            "text": "Users",
+            "tooltip": "The amount of user accounts available for each package"
+        },
+        {
+            "text": "Templates"
+        },
+        {
+            "text": "Emails"
+        },
+        {
+            "text": "Bandwidth",
+            "tooltip": "The amount of bandwidth available for each package"
+        },
+        {
+            "text": "Support",
+            "tooltip": "The amount of user accounts available for each package"
+        },
+        {
+            "text": "Integrations",
+            "tooltip": "The amount of user accounts available for each package"
+        },
+        {
+            "text": "Backups",
+            "tooltip": "The amount of user accounts available for each package"
+        },
+        {
+            "text": " ",
+            "additional-height": true
+        }
+    ]
+}

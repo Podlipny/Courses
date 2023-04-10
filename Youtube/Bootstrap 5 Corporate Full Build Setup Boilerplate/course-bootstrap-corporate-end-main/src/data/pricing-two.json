@@ -1,0 +1,37 @@
+{
+    "entries": [
+        {
+            "text": "1 team member",
+            "tooltip": "Single user account available on the basic package"
+        },
+        {
+            "text": "20 ",
+            "suffix": "templates"
+        },
+        {
+            "text": "30 ",
+            "suffix": "emails per week"
+        },
+        {
+            "text": "100GB ",
+            "suffix": "bandwidth"
+        },
+        {
+            "text": "Email ",
+            "suffix": "support"
+        },
+        {
+            "text": "15 ",
+            "suffix": "integrations"
+        },
+        {
+            "text": "Weekly ",
+            "suffix": "backups"
+        },
+        {
+            "cta": true,
+            "text": "Get started",
+            "additional-height": true
+        }
+    ]
+}

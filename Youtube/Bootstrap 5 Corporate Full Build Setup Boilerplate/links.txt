@@ -1,0 +1,24 @@
+
+--------- PROJECT DEMO ---------------------------------------
+
+https://sigma-html-bootstrap.vercel.app/
+
+
+
+---------- PROJECT GITHUB REPOSITORY -------------------------
+
+Start files: https://github.com/PixelRocket-Shop/course-bootstrap-corporate-start
+Completed project: https://github.com/PixelRocket-Shop/course-bootstrap-corporate-end
+
+
+----------- PLUGINS USED -------------------------------------
+Plyr: https://plyr.io/
+Swiper.js: https://swiperjs.com/
+Typed.js: https://github.com/mattboldt/typed.js/ 
+AOS.js: https://michalsnik.github.io/aos/ 
+
+
+
+----------- LINKS --------------------------------------------
+
+Pricing table showcase: https://saaslandingpage.com/pricing/

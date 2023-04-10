@@ -1,0 +1,15 @@
+:root {
+    /* Bootstrap vars */
+    --bs-font-sans-serif: 'Metropolis', sans-serif;
+
+    /* Icon font family */
+    --theme-font-icon: 'remixicon';
+    --theme-font-icon-style: 'normal';
+
+    /* Avatar */
+    --theme-avatar-size: 90px;  
+
+    @each $breakpoint, $value in $grid-breakpoints {
+        --theme-breakpoint-#{$breakpoint}: #{$value};
+    }  
+}

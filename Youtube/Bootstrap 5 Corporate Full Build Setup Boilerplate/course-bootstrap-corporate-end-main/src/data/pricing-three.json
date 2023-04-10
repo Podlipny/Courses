@@ -1,0 +1,37 @@
+{
+    "entries": [
+        {
+            "text": "10 team members"
+        },
+        {
+            "text": "500 ",
+            "suffix": "templates"
+        },
+        {
+            "text": "1000 ",
+            "suffix": "emails per week",
+            "tooltip": "The amount of emails available for our agency package"
+        },
+        {
+            "text": "Unlimited ",
+            "suffix": "bandwidth"
+        },
+        {
+            "text": "Email, Telephone ",
+            "suffix": "support"
+        },
+        {
+            "text": "15 ",
+            "suffix": "integrations"
+        },
+        {
+            "text": "Hourly ",
+            "suffix": "backups"
+        },
+        {
+            "cta": true,
+            "text": "Get started",
+            "additional-height": true
+        }
+    ]
+}

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Head -->
+{{> (config config.partials.head) title=config.defaultPageTitle }}
+
+<body class="{{ config.classes.body }}">
+
+    <!-- Navbar -->
+    {{> navbar/navbar
+        configClassList=config.classes.navbar
+        classList="" }}
+    <!-- / Navbar-->
+
+    <!-- Main Section-->
+    <main class="{{ config.classes.content }}">
+        <!-- Page Content Goes Here -->
+
+        <!-- Hero-->
+        {{> widgets/hero }}
+        <!-- /Hero-->     
+
+        <!-- Logo Showcase-->
+        <div class="bg-primary py-8">
+            <p class="mb-0 text-center small fw-bolder tracking-wider text-uppercase text-white opacity-75">Trusted by thousands of companies worldwide</p>
+            <div class="mt-5">
+                {{> marquee/marquee-logos }}
+            </div>
+        </div>
+        <!-- Logo Showcase-->
+
+        <!-- Integrations-->
+        {{> widgets/integrations }}
+        <!-- / Integrations-->
+
+        <!-- Product Highlights-->
+        {{> widgets/highlights }}
+        <!-- /Product Highlights-->
+
+        <!-- Customer Reviews-->
+        {{> widgets/reviews }}
+        <!-- /Customer Reviews-->
+
+        <!-- Latest Blog Posts-->
+        {{> widgets/blog }}
+        <!-- / Latest Blog Posts-->
+
+        <!-- Product Features summary-->
+        {{> widgets/features }}
+        <!-- Product Features summary-->
+
+        <!-- About Us-->
+        {{> widgets/about }}
+        <!-- / About Us-->
+
+        <!-- /Page Content -->
+    </main>
+    <!-- / Main Section-->
+
+    <!-- Footer -->
+    {{> (config config.partials.footer)
+            configClassList=config.classes.footer
+            classList=""
+        }}
+    <!-- / Footer-->
+
+    <!-- Theme JS -->
+    {{> footer/scripts }}
+
+</body>
+
+</html>
+

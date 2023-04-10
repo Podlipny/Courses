@@ -1,0 +1,25 @@
+<div class="bg-primary py-10">
+    <div class="container">
+        <h4 class="fs-1 fw-bold mb-6 text-white text-center">Our latest articles</h4>
+        <div class="row g-5">
+        {{#if (config blogs)}}
+            {{#each blogs.entries}}
+            <article class="col-12 col-sm-6 col-lg-4">
+                <div class="d-flex h-100 bg-white rounded card shadow-lg position-relative border-0 overflow-hidden">
+                    <picture>
+                        <img class="img-fluid" src="{{ img }}" alt="{{ config.defaultImgAlt }}">
+                    </picture>
+                    <div class="card-body p-4 p-lg-5">
+                        <p class="card-title fw-medium mb-4">{{ title }}</p>
+                        <a class="fw-medium fs-7 text-decoration-none link-cover" href="#">Read more &rarr;</a>
+                    </div>
+                </div>
+            </article>
+            {{/each}}
+            <div class="mt-7">
+                <a class="btn btn-white mx-auto d-table fw-medium w-100 w-md-auto" href="#">More articles &rarr;</a>
+            </div>
+        {{/if}}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,139 @@
+// Import Bootstrap Utils so that we can amend them
+@import '~bootstrap/scss/utilities';
+
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "cursor": (
+      property: cursor,
+      class: cursor,
+      responsive: true,
+      values: auto pointer grab
+    ),
+    "fixed-width": (
+        property: width,
+        class: f-w,
+        responsive: true,
+        values: map-merge($fixed-widths, (0:0))
+    ),
+    "fixed-height": (
+        property: height,
+        class: f-h,
+        responsive: true,
+        values: map-merge($fixed-widths, (0:0))
+    ),
+    "align": map-merge(
+        map-get($utilities, "align"),
+        (
+            values: append(
+                map-get(map-get($utilities, "align"), "values"), sub
+            )
+        )
+    ),
+    "width": map-merge(
+        map-get($utilities, "width"),
+        (
+            responsive: true,
+            values: map-merge(
+                map-get(map-get($utilities, "width"), "values"), (
+                    10: 10%,
+                    20: 20%
+                ) 
+            )
+        )
+    ),
+    "letter-spacing": (
+      property: letter-spacing,
+      class: tracking,
+      values: $letter-spacing
+    ),
+    "z-index": (
+        property: z-index,
+        values: (
+          "n1": -1,
+          "0": 0,
+          "1": 1,
+          "10": 10,
+          "20": 20,
+          "30": 30,
+          "40": 40,
+          "50": 50
+        )
+    ),
+    "transition": (
+      property: transition,
+      values: (
+      "all": all ease-in .3s,
+      "color": color ease-in .3s,
+      "background": background-color ease-in .3s,
+      "opacity": opacity ease-in .3s
+      )
+    ),
+    "opacity": map-merge(
+      map-get($utilities, "opacity"), (
+        responsive:true,
+        state: hover,
+        values: map-merge(
+          map-get(map-get($utilities, "opacity"), "values"), (
+            5: .05,
+            10: .10,
+            90: .9 
+          )
+        )
+      )
+    ),
+    "color": map-merge(
+      map-get($utilities, "color"),
+      (
+        state: hover focus active
+      )
+    ), 
+    "border-white": (
+      property: border-color,
+      class: border-white,
+      values: (
+          10: rgba(255,255,255, .10),
+          25: rgba(255,255,255, .25),
+          50: rgba(255,255,255, .50),
+          75: rgba(255,255,255, .75),
+          90: rgba(255,255,255, .90)
+        )
+    ),
+    "font-weight": map-merge(
+      map-get($utilities, "font-weight"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "font-weight"), "values"), (
+            black: 800,
+            medium: 500            
+          )
+        )
+      )
+    ),
+    "rotate": (
+      property: transform,
+      values: (
+        12: rotate(12deg),
+        n12: rotate(-12deg),
+        45: rotate(45deg),
+        n45: rotate(-45deg),
+        90: rotate(90deg),
+        n90: rotate(-90deg),
+        180: rotate(180deg),
+        n180: rotate(-180deg)        
+      )
+    ),
+    "rounded": map-merge(
+      map-get($utilities, "rounded"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "rounded"), "values"), (
+            4: $border-radius-xl,
+            5: $border-radius-xxl        
+          )
+        )
+      )
+    ),
+  )
+);
