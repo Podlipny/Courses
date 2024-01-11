@@ -1,0 +1,127 @@
+{
+	// Place your snippets for javascript here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+  "Lit Boilerplate": {
+  "prefix": "lit boilerplate",
+  "body": [
+    "import {LitElement, html, css} from './lit.js';",
+    "",
+    "class $1 extends LitElement {",
+    " static properties = {",
+    "    $3: { type: String, attribute: '$4' },",
+    " };",
+    "",
+    " constructor () {",
+    "   super();",
+    "   this.$3 = 'Default Value';",
+    " }",
+    "",
+    "  static styles = [css`$5`];",
+    "",
+    "  render() {",
+    "    return html`<div $4=${this.$3}>${this.$3}</div>`;",
+    "  }",
+    "}",
+    "customElements.define('$2', $1);"
+  ],
+  "description": "Lit Boilerplate"
+  },
+
+  "Lit html": {
+  "prefix": "lit html",
+  "body": [
+    "import {LitElement, html} from './lit.js';",
+    "",
+    "class $1 extends LitElement {",
+    "  render() {",
+    "    return html`$0`;",
+    "  }",
+    "}",
+    "customElements.define('$2', $1);"
+  ],
+  "description": "Lit html"
+  },
+
+  "Lit Import": {
+  "prefix": "lit import",
+  "body": [
+    "import { LitElement, html,$2 css$1 } from './lit.js$0';",
+  ],
+  "description": "Lit Import"
+  },
+
+  "Lit Render": {
+  "prefix": "lit render",
+  "body": [
+    "render () {",
+    "  return html`$0`",
+    "}"
+  ],
+  "description": "Lit Render"
+  },
+
+  "Lit Style": {
+  "prefix": "lit style",
+  "body": [
+    "static styles = [css`$0`];"
+  ],
+  "description": "Lit Style"
+  },
+
+  "Lit Attribute": {
+  "prefix": "lit attribute",
+  "body": [
+    "static properties = {",
+    "  $1 : { type: String$3, attribute: '$2' },",
+    "};"
+  ],
+  "description": "Lit Attribute"
+  },
+
+  "Lit Define": {
+  "prefix": "lit define",
+  "body": [
+    "customElements.define('$0', $1);"
+  ],
+  "description": "Lit Define"
+  },
+
+  "Lit Shared CSS": {
+  "prefix": "lit css",
+  "body": [
+    "import { css } from './lit.js';",
+    "",
+    "const $1 = css`",
+    "  :host {",
+    "    $0",
+    "   }",
+    "`;",
+    "",
+    "export default $1;"
+  ],
+  "description": "Lit Shared CSS"
+  },
+
+  "Lit Constructor": {
+  "prefix": "lit constructor",
+  "body": [
+    "constructor () {",
+    "  super();",
+    "  this.$0 = 'Default Value';",
+    "}"
+  ],
+  "description": "Lit Constructor"
+}
+}

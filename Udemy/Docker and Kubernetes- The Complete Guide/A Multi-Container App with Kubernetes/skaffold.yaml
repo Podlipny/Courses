@@ -1,0 +1,40 @@
+apiVersion: skaffold/v2beta12
+kind: Config
+deploy:
+  kubectl:
+    manifests:
+      - ./k8s/*
+build:
+  # only local builds withotu pushing to docker hub
+  local:
+    push: false
+  artifacts:
+    - image: rallycoding/client-skaffold
+      context: client # folder
+      docker:
+        dockerfile: Dockerfile.dev
+      sync:
+        # rikame jake files chceme sledovat a syncovat s clusterem
+        manual:
+          - src: "src/**/*.js"
+            dest: .
+          - src: "src/**/*.css"
+            dest: .
+          - src: "src/**/*.html"
+            dest: .
+    - image: rallycoding/worker-skaffold
+      context: worker
+      docker:
+        dockerfile: Dockerfile.dev
+      sync:
+        manual:
+          - src: "*.js"
+            dest: .
+    - image: rallycoding/server-skaffold
+      context: server
+      docker:
+        dockerfile: Dockerfile.dev
+      sync:
+        manual:
+          - src: "*.js"
+            dest: .

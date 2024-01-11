@@ -1,0 +1,120 @@
+{
+  "editor.fontSize": 14,
+  "editor.tabSize": 1,
+  "editor.insertSpaces": true,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+  "terminal.integrated.fontSize": 16,
+  "prettier.printWidth": 90,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "prettier.jsxSingleQuote": true,
+  "prettier.spaceBeforeFunctionParen": true,
+  "editor.defaultFormatter": "remimarsal.prettier-now",
+  "prettier.bracketSpacing": true,
+  "prettier.semi": true,
+  "prettier.jsxBracketSameLine": false,
+  "prettier.trailingComma": "all",
+  "prettier.arrayExpand": false,
+  "prettier.alignObjectProperties": true,
+  "prettier.breakProperty": true,
+  "prettier.arrowParens": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "[javascript]": {
+    "editor.defaultFormatter": "remimarsal.prettier-now"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "remimarsal.prettier-now"
+  },
+  "prettier.cssEnable": [
+    "css",
+    "less",
+    "scss",
+    "postcss"
+  ],
+  "prettier.javascriptEnable": [
+    "javascript",
+    "javascriptreact"
+  ],
+  "prettier.jsonEnable": [
+    "json"
+  ],
+  "prettier.graphqlEnable": [
+    "graphql"
+  ],
+  "prettier.typescriptEnable": [
+    "typescript",
+    "typescriptreact"
+  ],
+  "workbench.iconTheme": "material-icon-theme",
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "git.enableSmartCommit": true,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "workbench.colorTheme": "Material Theme High Contrast",
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "vue-html": "html"
+  },
+  "editor.minimap.enabled": false,
+  "editor.cursorBlinking": "expand", 
+  "highlight-matching-tag.styles": {
+    "opening": {
+      "full": {
+        "custom": {
+          "overviewRulerColor": "#ffffff",
+          "backgroundColor": "rgba(195, 232, 144, 0.1)"
+        }
+      }
+    }
+  },
+  "highlight-matching-tag.highlightSelfClosing": true,
+  "indentRainbow.colors": [
+    "rgba(21, 24, 30, 0.1)",
+    "rgba(38, 50, 56, 0.1)",
+    "rgba(52, 68, 76, 0.1)",
+    "rgba(72, 95, 106, 0.1)",
+    "rgba(93, 122, 137, 0.1)",
+    "rgba(118, 148, 162, 0.1)",
+    "rgba(149, 171, 183, 0.1)",
+    "rgba(179, 195, 203, 0.1)",
+    "rgba(209, 219, 224, 0.1)",
+    "rgba(240, 243, 245, 0.1)"
+  ],
+  "indentRainbow.errorColor": " ",
+  "indentRainbow.tabmixColor": " ",
+  "liveServer.settings.donotShowInfoMsg": true,
+  "alignment.indentBase": "dontchange",
+  "alignment.operatorPadding": "right",
+  "alignment.surroundSpace": {
+    "colon": [1, 2],
+    "assignment": [1, 1],
+    "arrow": [1, 1],
+    "comment": 2
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "octref.vetur"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "HookyQR.beautify"
+  },
+  "html.format.wrapLineLength": 90,
+  "html.format.indentHandlebars": true,
+  "html.format.indentInnerHtml": true,
+  "html.format.endWithNewline": true,
+  "html.format.wrapAttributesIndentSize": 1,
+  "html.format.wrapAttributes": "force-expand-multiline",
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "expanded",
+      "extensionName": ".css",
+      "savePath": "/styles"
+    },
+    {
+      "format": "compressed",
+      "extensionName": ".min.css",
+      "savePath": "/styles"
+    }
+  ],
+  "window.zoomLevel": 3,
+}
