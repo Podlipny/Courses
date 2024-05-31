@@ -1,0 +1,19 @@
+{
+  "name": "01-child-process",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "rm -f ./database/output-gmail.ndjson && node src/index.js && sh check-results.sh",
+    "seed": "node --watch src/seed.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@faker-js/faker": "7.6",
+    "split": "^1.0.1"
+  }
+}

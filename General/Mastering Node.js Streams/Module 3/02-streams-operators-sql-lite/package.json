@@ -1,0 +1,20 @@
+{
+  "name": "02-streams-operators-sql-lite",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "seed": "mkdir -p data/ && rm data/** && node src/seed.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@faker-js/faker": "7.6",
+    "sqlite3": "5.1"
+  }
+}
